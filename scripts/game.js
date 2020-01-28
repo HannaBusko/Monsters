@@ -17,8 +17,8 @@ function toConstractCanvas(){
     let widthForCount = playfield.offsetWidth;
     let heightForCount = playfield.offsetHeight;
    
-    if(widthForCount>800){
-        
+    if(widthForCount>1000){
+       let holes= widthForCount/4;
     }
     
 }
