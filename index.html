@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Уходи, чудовище!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/element_style.css">
+    <link rel="stylesheet" href="styles/background.css">
+    <!--<link rel="stylesheet" type="text/css" href="styles/adaptive.css">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">-->
+    <!--<script type="text/javascript" src="js/jquery-min.js"></script>-->
+</head>
+
+<body>
+    <header>
+        <input id="sound" type="image" title="Звук" value="off" src="./img/sound3_stop.png"
+            alt="Включение/выключение звука">
+        <audio id="audioplayer" preload loop></audio>
+        <input id="menu_on" type="image" title="Меню" value="off" src="./img/back_menu.png" alt="Вызов меню"
+            onclick="switchToMenuPage()">
+    </header>
+    <main>
+        <div id="menu">
+            <div class="logo"></div>
+            <nav>
+                <ul class="mainMenu">
+                    <li><button onclick="switchToGamePage()">Играть</button></li>
+                    <!-- <li><button onclick="startGame()">Рекорды </button></li><button onclick="startGame()">Правила</button>-->
+                    <li><button onclick="switchToRulesPage()"> Правила</li>
+                </ul>
+            </nav>
+        </div>
+        <div id="rules">
+            <article class="rules-info">
+                <h1>Уходи, чудовище!</h1>
+                <p>Вечером мир выглядит иначе. Таинственные тени появляются на стенах…Чудовища подкрадываются к кровати…
+                    Ты не можешь заснуть? Ты боишься
+                    монстров? Сыграй в игру и прoгони их в шкаф!</p>
+                <h2> ХОД ИГРЫ</h2>
+                <p>
+                    Игрок старается найти игрушки, которые испугают монстров. Каждое чудовище боится только одной
+                    игрушки – той, которая изображена на его карте.
+                    Игрок открывает любой жетон с игрушкой. В зависимости от того, какой жетон будет открыт, игрок
+                    должен выполнить одно из 3-х действий: </p>
+                <p>1. Если игрок откроет игрушку идентичную той,
+                    которая изображена на карте монстра(одного из монстров):
+                    • Испуганное чудовище идет спать.
+                    • Жетон с игрушкой вновь переворачивается.</p>
+                <p>2. Если игрушка не испугает монстров (т.е. не совпадет ни с одной изображенной игрушкой на карточке
+                    чудовищ):
+                    • Переворачивается одна из частей монстра в банке (начиная снизу). После трёх неудачных попыток
+                    найти нужную игрушку,
+                    когда появится целая фигурка монстра в банке, возле кровати должен появиться новый монстр.</p>
+                <p> 3. Если открытый жетон является одним из двух жетонов анти-Джокеров:
+                    • Рисунки на жетонах анти-Джокерах изображены на цветном фоне. Когда время игры жетоны открываются
+                    впервые, ничего не происходит.
+                    Просто, нужно перевернуть жетон обратно рисунком вниз, запомнить его местоположение. Не нужно
+                    переворачивать ни одну из частей монстра
+                    в банке. Если игрок в очередной раз откроют один из специальных жетонов, нужно выполнить следующие
+                    действия:</p>
+                <h3>Носки</h3>
+                <p> Носки не испугает никакого монстра, а наоборот создаст беспорядок! Один из жетонов с игрушкой
+                    меняется местами с жетоном с носками.
+                    Затем, переворачивается очередную часть монстра в банке</p>
+                <h3>Серенький волчок</h3>
+                <p>Все части монстра в банке, нужные для появления нового монстра переворачиваются, новый монстр
+                    немедленно выходит.</p>
+                <h2>КОНЕЦ ИГРЫ</h2>
+                <p>Игрок побеждает в том случае, если ему удастся загнать всех монстров в шкаф! Когда все четыре места
+                    вокруг кровати заняты чудовищами, побеждают чудовища.
+                    Если монстры выиграли эту партию, лучший вариант – начать новую игру с целью взять реванш.</p>
+            </article>
+        </div>
+        <div id="start">
+            <div id="memoryBox">
+                <canvas id="cvs"></canvas>
+            </div>
+        </div>
+        <!-- <footer>
+            <img src="./img/footer.png">
+        </footer> -->
+    </main>
+    <!--<div class="load" style="display: none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>-->
+    <script src="./scripts/core.js"></script>
+    <!---->
+    <script src='./scripts/game.js'></script>
+    <script src='./scripts/SPA.js'></script>
+
+</body>
+
+</html>

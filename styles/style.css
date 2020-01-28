@@ -1,0 +1,128 @@
+ * {
+     margin: 0px;
+     padding: 0px;
+ }
+
+ #sound {
+     float: right;
+     width: 7%;
+     display: block;
+ }
+
+ #sound:hover, #sound:active, #sound:focus {
+     outline: none;
+ }
+
+ #menu_on {
+     float: left;
+     width: 7%;
+ }
+
+ #menu_on:hover, #menu_on:active, #menu_on:focus {
+     outline: none;
+ }
+
+ #menu, #rules, #menu_on, #start {
+     display: none;
+ }
+
+ .logo {
+     width: 100%;
+     height: 30vh;
+     background: url(../img/logo.png) center no-repeat;
+     background-size: contain;
+ }
+
+ main {
+     /*display: flex;*/
+     /* flex-direction: column;*/
+     min-height: 100vh;
+ }
+
+ #rules {
+     flex: 1 1 auto;
+     height: 100vh;
+     background: url(../img/rules.png) center no-repeat;
+     position: relative;
+     overflow-y: auto;
+ }
+
+ .rules-info {
+     position: absolute;
+     left: 50%;
+     padding-top: 15vh;
+     margin-bottom: 5vh;
+     margin-right: -50%;
+     transform: translate(-50%, 0%);
+     text-align: justify;
+ }
+
+ .rules-info h1, .rules-info h2, .rules-info h3 {
+     font-family: 'Lobster', cursive;
+     text-align: center;
+ }
+
+ .rules-info h1 {
+     font-size: 2.5rem;
+ }
+
+ nav {
+     margin: auto;
+ }
+
+ .mainMenu {
+     list-style: none;
+     padding-top: 15vh;
+     text-align: center;
+     height: 40vh;
+     background: url(../img/menu.png) center no-repeat;
+     background-size: contain;
+ }
+
+ .mainMenu button {
+     width: 45vw;
+     max-width: 260px;
+     height: 6vh;
+     background-color: transparent;
+     border: ridge rgb(112, 60, 17);
+     border-radius: 10% /45%;
+     font-size: 4vh;
+     font-family: Arciform Sans cyr-lat;
+     color: rgb(236, 139, 49);
+     margin-bottom: 1%;
+ }
+
+ /* #start{margin-top: 5vh;
+    position: relative;
+}*/
+
+ #start {
+     width: 80%;
+     margin: 0px auto;
+     min-height: 100vh;
+ }
+
+ #memoryBox {
+     width: 80%;
+     margin-top: 4vh;
+     height: 90vh;
+     border: Solid 1px #ebe5e5;
+     position: absolute;
+ }
+
+ @media screen and (min-width: 800px) {
+     #rules {
+         background-size: 50% 100%;
+     }
+     .rules-info {
+         padding-left: 30%;
+         padding-right: 30%;
+     }
+ }
+
+ @media screen and (max-width: 800px) {
+     .rules-info {
+         padding-left: 10%;
+         padding-right: 10%;
+     }
+ }
