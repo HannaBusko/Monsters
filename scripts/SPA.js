@@ -3,6 +3,8 @@
 // в т.ч. при нажатии кнопок браузера ВПЕРЁД/НАЗАД
 window.onhashchange = SwitchToStateFromURLHash;
 
+window.onresize = IsNeedRedrawCanvas;
+
 function SwitchToStateFromURLHash(param) {
     let URLHash = window.location.hash;
 
@@ -64,6 +66,9 @@ function SwitchToStateFromURLHash(param) {
             let showElement = entry.state === state;
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
+            document.getElementById("audioplayerMenu").stop();
+            document.getElementById("audioplayerStart").stop();
+
         });
 
         if (state === 'Start') {
@@ -107,3 +112,10 @@ function switchToRulesPage() {
     switchToState({ pagename: 'Rules' });
 }
 
+function IsNeedRedrawCanvas() {
+    let URLHash = window.location.hash;
+    let state = decodeURIComponent(URLHash.substr(1));
+    if (state == "Start") {
+        drawCanvas();
+    }
+}

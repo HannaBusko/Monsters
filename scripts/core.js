@@ -3,7 +3,17 @@
 let soundButton = document.getElementById("sound");
 soundButton.addEventListener("click", controlMusic);
 
-let audioElem = document.getElementById("audioplayer");
+// Функция stop для Audio:
+HTMLAudioElement.prototype.stop = function () {
+    this.pause();
+    toDrawStop();
+    this.currentTime = 0.0;
+}
+
+function toDrawStop() {
+    soundButton.value = "off";
+    soundButton.src = "./img/sound3_stop.png";
+}
 
 function controlMusic(EO) {
 
@@ -13,34 +23,19 @@ function controlMusic(EO) {
 
     let isSoundOn = soundButton.value;
 
-    if (isSoundOn === "on") {
-        audioElem.pause();
-        soundButton.value = "off";
-        soundButton.src = "./img/sound3_stop.png";
+    var audioElem;
+
+    if (state != "Start") {
+        audioElem = document.getElementById("audioplayerMenu");
     }
     else {
-
-        let mainMusic = document.createElement("source");
-        if (state != "Start") {
-            if (audioElem.canPlayType("audio/mp3")) {
-                mainMusic.setAttribute("src", "./sounds/menu_music.mp3");
-                mainMusic.setAttribute("type", "audio/mp3");
-            } else {
-                mainMusic.setAttribute("src", "./sounds/menu_music.ogg");
-                mainMusic.setAttribute("type", "audio/ogg");
-            }
-        }
-        else {
-
-            if (audioElem.canPlayType("audio/mp3")) {
-                mainMusic.setAttribute("src", "./sounds/game_music.mp3");
-                mainMusic.setAttribute("type", "audio/mp3");
-            } else {
-                mainMusic.setAttribute("src", "./sounds/game_music.ogg");
-                mainMusic.setAttribute("type", "audio/ogg");
-            }
-        }
-        audioElem.appendChild(mainMusic);
+        audioElem = document.getElementById("audioplayerStart");
+    }
+    if (isSoundOn === "on") {
+        audioElem.pause();
+        toDrawStop();
+    }
+    else {
         audioElem.play();
         soundButton.value = "on";
         soundButton.src = "./img/sound3.png";
@@ -48,22 +43,31 @@ function controlMusic(EO) {
 }
 
 
-/*window.onload = function () {
+window.onload = function () {
 
-    let mainMusic = this.document.createElement("source");
+    let audioElemMenu = document.getElementById("audioplayerMenu");
+    let musicMenu = document.createElement("source");
+    if (audioElemMenu.canPlayType("audio/mp3")) {
+        musicMenu.setAttribute("src", "./sounds/menu_music.mp3");
+        musicMenu.setAttribute("type", "audio/mp3");
+    } else {
+        musicMenu.setAttribute("src", "./sounds/menu_music.ogg");
+        musicMenu.setAttribute("type", "audio/ogg");
+    }
+    audioElemMenu.appendChild(musicMenu);
 
-
-    mainMusic.setAttribute("data-place", "menu");
-
-
-
-    let gameMusic = this.document.createElement("source");
-
-    gameMusic.setAttribute("data-place", "game");
-    audioElem.appendChild(gameMusic);
-
+    let audioElemStart = document.getElementById("audioplayerStart");
+    let musicStart = document.createElement("source");
+    if (audioElemStart.canPlayType("audio/mp3")) {
+        musicStart.setAttribute("src", "./sounds/game_music.mp3");
+        musicStart.setAttribute("type", "audio/mp3");
+    } else {
+        musicStart.setAttribute("src", "./sounds/game_music.ogg");
+        musicStart.setAttribute("type", "audio/ogg");
+    }
+    audioElemStart.appendChild(musicStart);
 
     // <source src="./sounds/menu_music.mp3" type="audio/mp3">
     //    <source src="./sounds/menu_music.ogg" type="audio/ogg">
 
-}*/
+}

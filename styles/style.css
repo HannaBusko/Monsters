@@ -110,6 +110,12 @@
      position: absolute;
  }
 
+ #cardField{
+    margin: 0px auto; 
+    width: 820px;
+    height:480px;
+ }
+
  @media screen and (min-width: 800px) {
      #rules {
          background-size: 50% 100%;

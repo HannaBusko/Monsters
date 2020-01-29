@@ -17,7 +17,8 @@
     <header>
         <input id="sound" type="image" title="Звук" value="off" src="./img/sound3_stop.png"
             alt="Включение/выключение звука">
-        <audio id="audioplayer" preload loop></audio>
+        <audio id="audioplayerMenu" preload loop></audio>
+        <audio id="audioplayerStart" preload loop></audio>
         <input id="menu_on" type="image" title="Меню" value="off" src="./img/back_menu.png" alt="Вызов меню"
             onclick="switchToMenuPage()">
     </header>
@@ -75,7 +76,8 @@
         </div>
         <div id="start">
             <div id="memoryBox">
-                <canvas id="cvs"></canvas>
+                <div id="cardField">
+                    <canvas id="cvs"></canvas></div>
             </div>
         </div>
         <!-- <footer>
