@@ -34,8 +34,9 @@ function drawCanvas() {
     let fieldCanvas = document.getElementById("cvs");
 
     let clientWidth = document.documentElement.clientWidth;
-    
-    var context = fieldCanvas.getContext("2d");
+
+    let context = fieldCanvas.getContext("2d");
+    context.clearRect(0, 0, fieldCanvas.width, fieldCanvas.height);
     let imgHight = 150;
     let imgWidth = 200;
     let gap = 5;
@@ -57,13 +58,13 @@ function drawCanvas() {
         if (clientWidth >= 765) {
             numberColumn = 3;
             numberRow = 4;
-            cardField.style.height = 150*4+gap*3+"px";
+            cardField.style.height = 150 * 4 + gap * 3 + "px";
         }
-        else{
+        else {
             numberColumn = 2;
-            numberRow = 6; 
-            imgWidth = cardField.offsetWidth/2;
-            imgHight = Math.floor(imgWidth*3/4);
+            numberRow = 6;
+            imgWidth = cardField.offsetWidth / 2;
+            imgHight = Math.floor(imgWidth * 3 / 4);
             gap = 0;
         }
         // cardField.style.height = "480px";

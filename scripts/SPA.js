@@ -8,6 +8,11 @@ window.onresize = IsNeedRedrawCanvas;
 function SwitchToStateFromURLHash(param) {
     let URLHash = window.location.hash;
 
+    let oldURL = param.oldURL;
+    let oldHash = "";
+    if (oldURL) {
+        oldHash = oldURL.substring(oldURL.lastIndexOf("#"));
+    }
     console.log('Закладка изменилась: ', URLHash);
 
     //Заменяет каждую управляющую последовательность в закодированном компоненте URI соответствующим ей символом.
@@ -62,17 +67,26 @@ function SwitchToStateFromURLHash(param) {
             { state: 'Rules', 'id': 'rules' }
         ];
 
+        //изменение логики работы при изменении страницы
         stateElements.forEach((entry) => {
             let showElement = entry.state === state;
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
-            document.getElementById("audioplayerMenu").stop();
-            document.getElementById("audioplayerStart").stop();
 
+            if (document.getElementById("sound").value == "on") {
+                if (oldHash === "#Start") {
+                    document.getElementById("audioplayerStart").stop();
+                    document.getElementById("audioplayerMenu").play();
+                }
+                if (state === "Start") {
+                    document.getElementById("audioplayerStart").play();
+                    document.getElementById("audioplayerMenu").stop();
+                }
+            }
         });
 
-        if (state === 'Start') {
-            prefix = 'Game | ';
+        if (state === "Start") {
+            prefix = "Game | ";
             toConstractCanvas();
         }
         title = prefix + 'Уходи, чудовище!';
@@ -92,8 +106,6 @@ function beforeUnload(e) {
 
 SwitchToStateFromURLHash(true);
 
-// устанавливает в закладке УРЛа новое состояние приложения
-// и затем устанавливает+отображает это состояние
 function switchToState(newState) {
 
     var stateStr = newState.pagename;

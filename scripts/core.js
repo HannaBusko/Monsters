@@ -6,7 +6,6 @@ soundButton.addEventListener("click", controlMusic);
 // Функция stop для Audio:
 HTMLAudioElement.prototype.stop = function () {
     this.pause();
-    toDrawStop();
     this.currentTime = 0.0;
 }
 
