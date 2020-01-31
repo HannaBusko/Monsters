@@ -1,76 +1,53 @@
 var gameplay = class Gameplay {
-
     isPlaying() {
         return false;
     };
-
     stopGame() {
         return true;
     }
-
 }
 
 
 function toConstractCanvas() {
     drawCanvas();
-
-    /* var context = fieldCanvas.getContext("2d");
- 
-     let cellSizeWidth = 200;
-     let cellSizeHeight = 150;
- 
-     var img = new Image();
-     img.src = "./img/back.png";
-     img.onload = drawImg;
- 
-     function drawImg() {
-         context.drawImage(img, 10, 10,200,150);
-     }*/
 }
 
 function drawCanvas() {
 
     let cardField = document.getElementById("cardField");
-    let fieldCanvas = document.getElementById("cvs");
 
+    let fieldCanvas = document.createElement("canvas");
+    fieldCanvas.setAttribute("id", "cvs");
     let clientWidth = document.documentElement.clientWidth;
-
     let context = fieldCanvas.getContext("2d");
-    context.clearRect(0, 0, fieldCanvas.width, fieldCanvas.height);
-    let imgHight = 150;
-    let imgWidth = 200;
+
+    //начальные размеры изображения и отступов
+    let imgStartHight = 150, imgHight = 150;
+    let imgStartWidth = 200, imgWidth = 200;
     let gap = 5;
 
-    var numberColumn;
-    var numberRow;
+    let numberColumn = 4;
+    let numberRow = 3;
 
-    if (clientWidth >= 1024) {
-        numberColumn = 4;
-        numberRow = 3;
-        cardField.style.width = "820px";
-        cardField.style.height = "480px";
-        fieldCanvas.width = 820;
-        fieldCanvas.height = 480;
+    if (clientWidth >= 765 && clientWidth < 1300) {
+        imgHight = imgStartHight * 0.7;
+        imgWidth = imgStartWidth * 0.7;
     }
-    else {
-        cardField.style.width = "100%";
-        fieldCanvas.width = cardField.offsetWidth;
-        if (clientWidth >= 765) {
-            numberColumn = 3;
-            numberRow = 4;
-            cardField.style.height = 150 * 4 + gap * 3 + "px";
-        }
-        else {
-            numberColumn = 2;
-            numberRow = 6;
-            imgWidth = cardField.offsetWidth / 2;
-            imgHight = Math.floor(imgWidth * 3 / 4);
-            gap = 0;
-        }
-        // cardField.style.height = "480px";
 
-        //fieldCanvas.height = 480;
+    if(clientWidth<765){
+        imgHight = imgStartHight * 0.3;
+        imgWidth = imgStartWidth * 0.3;
     }
+
+    fieldCanvas.height = imgHight * 3 + gap * 4;
+    cardField.style.height = fieldCanvas.height + "px";
+
+    fieldCanvas.width = imgWidth * 4 + gap * 3;
+    cardField.style.width = fieldCanvas.width + "px";
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    доделать!!! изменние процента в зависимотсти от высоты. если высота поля канваса больше половины поля, уменьшить маштаб*/
+
+    cardField.appendChild(fieldCanvas);
     var img = new Image();
     img.src = "./img/back.png";
     img.onload = drawImg;
@@ -95,6 +72,12 @@ function drawCanvas() {
             for (let j = 0, m = 0; j < numberColumn; j++ , m = m + imgWidth + gap)
                 context.drawImage(img, m, k, imgWidth, imgHight);
         }
+
+    }
+
+    fieldCanvas.addEventListener("click","openCard")
+
+    function openCard(){
 
     }
 

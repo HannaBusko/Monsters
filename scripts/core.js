@@ -3,6 +3,15 @@
 let soundButton = document.getElementById("sound");
 soundButton.addEventListener("click", controlMusic);
 
+var smallCards = {
+    0: "./img/smallCards/ball.png", 1: "./img/smallCards/ballon.png",
+    2: "./img/smallCards/bear.png", 3: "./img/smallCards/bike.png",
+    4: "./img/smallCards/car.png", 5: "./img/smallCards/doll.png",
+    6: "./img/smallCards/drum.png", 7: "./img/smallCards/duck.png",
+    8: "./img/smallCards/jula.png", 9: "./img/smallCards/monster_card.png",
+    10: "./img/smallCards/plane.png", 11: "./img/smallCards/socks.png"
+};
+
 // Функция stop для Audio:
 HTMLAudioElement.prototype.stop = function () {
     this.pause();
@@ -65,8 +74,4 @@ window.onload = function () {
         musicStart.setAttribute("type", "audio/ogg");
     }
     audioElemStart.appendChild(musicStart);
-
-    // <source src="./sounds/menu_music.mp3" type="audio/mp3">
-    //    <source src="./sounds/menu_music.ogg" type="audio/ogg">
-
 }

@@ -128,6 +128,8 @@ function IsNeedRedrawCanvas() {
     let URLHash = window.location.hash;
     let state = decodeURIComponent(URLHash.substr(1));
     if (state == "Start") {
+        let cardField = document.getElementById("cardField");
+        cardField.removeChild(document.getElementById("cvs"));
         drawCanvas();
     }
 }

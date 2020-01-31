@@ -3,6 +3,10 @@
      padding: 0px;
  }
 
+ body{
+     max-width: 2500px;
+ }
+
  #sound {
      float: right;
      width: 7%;
