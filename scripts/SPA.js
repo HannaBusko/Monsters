@@ -87,7 +87,8 @@ function SwitchToStateFromURLHash(param) {
 
         if (state === "Start") {
             prefix = "Game | ";
-            toConstractCanvas();
+            sortSmallCards();
+            toConstractCanvas();   
         }
         title = prefix + 'Уходи, чудовище!';
         document.getElementsByTagName('title')[0].innerHTML = title;
@@ -128,8 +129,6 @@ function IsNeedRedrawCanvas() {
     let URLHash = window.location.hash;
     let state = decodeURIComponent(URLHash.substr(1));
     if (state == "Start") {
-        let cardField = document.getElementById("cardField");
-        cardField.removeChild(document.getElementById("cvs"));
         drawCanvas();
     }
 }

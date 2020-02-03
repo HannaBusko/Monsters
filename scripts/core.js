@@ -3,15 +3,31 @@
 let soundButton = document.getElementById("sound");
 soundButton.addEventListener("click", controlMusic);
 
-var smallCards = {
-    0: "./img/smallCards/ball.png", 1: "./img/smallCards/ballon.png",
-    2: "./img/smallCards/bear.png", 3: "./img/smallCards/bike.png",
-    4: "./img/smallCards/car.png", 5: "./img/smallCards/doll.png",
-    6: "./img/smallCards/drum.png", 7: "./img/smallCards/duck.png",
-    8: "./img/smallCards/jula.png", 9: "./img/smallCards/monster_card.png",
-    10: "./img/smallCards/plane.png", 11: "./img/smallCards/socks.png"
-};
+let fieldCanvas = document.getElementById("cvs");
+fieldCanvas.addEventListener("click", openCard);
 
+var smallCards = [
+    { "name": "ball", "src": "./img/smallCards/ball.png" }, { "name": "ballon", "src": "./img/smallCards/ballon.png" },
+    { "name": "bear", "src": "./img/smallCards/bear.png" }, { "name": "bike", "src": "./img/smallCards/bike.png" },
+    { "name": "car", "src": "./img/smallCards/car.png" }, { "name": "doll", "src": "./img/smallCards/doll.png" },
+    { "name": "drum", "src": "./img/smallCards/drum.png" }, { "name": "duck", "src": "./img/smallCards/duck.png" },
+    { "name": "jula", "src": "./img/smallCards/jula.png" }, { "name": "monster_card", "src": "./img/smallCards/monster_card.png" },
+    { "name": "plane", "src": "./img/smallCards/plane.png" }, { "name": "socks", "src": "./img/smallCards/socks.png" }
+];
+
+function sortSmallCards() {
+    let sortArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+    function compareRandom(a, b) {
+        return Math.random() - 0.5;
+    }
+
+    sortArr.sort(compareRandom);
+
+    for (let i = 0; i < sortArr.length; i++) {
+        smallCards[i]["numTemp"] = sortArr[i];
+    }
+}
 // Функция stop для Audio:
 HTMLAudioElement.prototype.stop = function () {
     this.pause();
@@ -74,4 +90,12 @@ window.onload = function () {
         musicStart.setAttribute("type", "audio/ogg");
     }
     audioElemStart.appendChild(musicStart);
+}
+
+function openCard(EO) {
+    EO = EO || window.event;
+    let x = EO.offsetX;
+    let y = EO.offsetY;
+    //let y = (EO.pageY - canvas.offsetTop)  / cellSize | 0;
+	//	event(x, y); // выхов функции действия
 }
