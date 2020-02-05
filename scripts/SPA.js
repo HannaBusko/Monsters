@@ -3,8 +3,6 @@
 // в т.ч. при нажатии кнопок браузера ВПЕРЁД/НАЗАД
 window.onhashchange = SwitchToStateFromURLHash;
 
-window.onresize = IsNeedRedrawCanvas;
-
 function SwitchToStateFromURLHash(param) {
     let URLHash = window.location.hash;
 
@@ -87,8 +85,8 @@ function SwitchToStateFromURLHash(param) {
 
         if (state === "Start") {
             prefix = "Game | ";
-            sortSmallCards();
-            toConstractCanvas();   
+            //sortSmallCards();
+           // toConstractCanvas();   
         }
         title = prefix + 'Уходи, чудовище!';
         document.getElementsByTagName('title')[0].innerHTML = title;
@@ -125,10 +123,11 @@ function switchToRulesPage() {
     switchToState({ pagename: 'Rules' });
 }
 
-function IsNeedRedrawCanvas() {
+//window.onresize = IsNeedRedrawCanvas;
+/*function IsNeedRedrawCanvas() {
     let URLHash = window.location.hash;
     let state = decodeURIComponent(URLHash.substr(1));
     if (state == "Start") {
         drawCanvas();
     }
-}
+}*/

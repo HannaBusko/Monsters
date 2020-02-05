@@ -8,7 +8,7 @@ var gameplay = class Gameplay {
 }
 
 
-function toConstractCanvas() {
+/*function toConstractCanvas() {
 
     drawCanvas();
 
@@ -53,7 +53,7 @@ function drawCanvas() {
     доделать!!! изменние процента в зависимотсти от высоты. если высота поля канваса больше половины поля, уменьшить маштаб*/
 
     //cardField.appendChild(fieldCanvas);
-    var img = new Image();
+    /*var img = new Image();
     img.src = "./img/back.png";
     img.onload = drawImg;
 
@@ -72,7 +72,7 @@ function drawCanvas() {
         }
     }
 
-}
+}*/
 
 
 
