@@ -3,7 +3,7 @@
      padding: 0px;
  }
 
- body{
+ body {
      max-width: 2500px;
  }
 
@@ -20,6 +20,7 @@
  #menu_on {
      float: left;
      width: 7%;
+     transform: scale(1);
  }
 
  #menu_on:hover, #menu_on:active, #menu_on:focus {
@@ -114,10 +115,57 @@
      position: absolute;
  }
 
- #cardField{
-    margin: 0px auto; 
-    width: 820px;
-    height:480px;
+ #cardField {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     width: 60%;
+     min-height: 470px;
+     margin: 0px auto;
+     border: Solid 1px #ebe5e5;
+     perspective: 1000px;
+ }
+
+ .smallCards {
+     max-width: 200px;
+     width: 30%;
+     position: relative;
+     transform-style: preserve-3d;
+     transition: transform .5s;
+ }
+
+ .smallCards img {
+     width: 100%;
+     position: absolute;
+     backface-visibility: hidden;
+ }
+
+ #menu_on, #sound, .smallCards {
+     transform: scale(1);
+ }
+
+ .smallCards:active, #menu_on:hover, #menu_on:focus {
+     transform: scale(0.95);
+     transition: transform 0.3s;
+ }
+
+ /*.backFace{
+     display: none;
+ }
+ .frontFace{
+    display: none;
+ }
+
+ .frontFace{
+    opacity: 0;
+ }*/
+
+ .frontFace {
+     transform: rotateY(180deg);
+ }
+
+ .smallCardAnimation {
+     transform: rotateY(180deg);
  }
 
  @media screen and (min-width: 800px) {
@@ -134,5 +182,14 @@
      .rules-info {
          padding-left: 10%;
          padding-right: 10%;
+     }
+     #cardField {
+         min-height: 300px;
+     }
+ }
+
+ @media screen and (max-width: 600px) {
+     #cardField {
+         min-height: 200px;
      }
  }

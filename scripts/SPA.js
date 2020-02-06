@@ -13,6 +13,9 @@ function SwitchToStateFromURLHash(param) {
     }
     console.log('Закладка изменилась: ', URLHash);
 
+    if(oldHash === "#Start"){
+        cleanCardField();
+    }
     //Заменяет каждую управляющую последовательность в закодированном компоненте URI соответствующим ей символом.
 
     let state = decodeURIComponent(URLHash.substr(1));
@@ -41,6 +44,7 @@ function SwitchToStateFromURLHash(param) {
             //  window.location.hash = 'Menu';
             // } else {
             changeRepresentation(state);
+            sortSmallCards();
             // gameplay.startGame;
             // }
             break;
@@ -85,7 +89,6 @@ function SwitchToStateFromURLHash(param) {
 
         if (state === "Start") {
             prefix = "Game | ";
-            //sortSmallCards();
            // toConstractCanvas();   
         }
         title = prefix + 'Уходи, чудовище!';
