@@ -17,7 +17,7 @@ var smallCards = [
 ];
 
 let hasOpenedCard = false;
-var firstOpenedCar,secondOpenedCard;
+var firstOpenedCar, secondOpenedCard;
 
 function sortSmallCards() {
     let sortArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -53,7 +53,6 @@ function addListeners() {
     let allSmallCards = document.querySelectorAll(".smallCards");
     for (let i = 0; i < allSmallCards.length; i++) {
         allSmallCards[i].addEventListener('click', openCard);
-        //allSmallCards[i].addEventListener("click",openCard);
     }
 }
 
@@ -62,25 +61,39 @@ function openCard(EO) {
 
     if (!hasOpenedCard) {
         hasOpenedCard = true;
-        openedCar = this;
+        firstOpenedCar = this;
         this.classList.add("smallCardAnimation");
-        this.removeEventListener('click', openCard);
-        this.classList.remove('smallCardAnimation');
+        //this.removeEventListener('click', openCard);
+        //this.addEventListener('click', closePreviousCard);
+        return;
     }
-    else{
 
+    if(firstOpenedCar==this){
+        hasOpenedCard = false;
+        firstOpenedCar.classList.remove("smallCardAnimation");
+        firstOpenedCar = "";
+        return;
     }
-    /*else {hasOpenedCard = false;
-        setTimeout(closeCard(this),100);
-        
-        
-        
-    }*/
+
+    hasOpenedCard = true;
+    firstOpenedCar.classList.remove("smallCardAnimation");
+    this.classList.add("smallCardAnimation");
+    firstOpenedCar = this;
+    /*closePreviousCard();
+    firstOpenedCar.addEventListener('click', openCard);
+    firstOpenedCar = this;
+    
+    hasOpenedCard = true;
+    
+    this.removeEventListener('click', openCard);
+    this.addEventListener('click', closePreviousCard);*/
 }
 
-function closeCard(card) {
-    card.classList.remove('smallCardAnimation');
-}
+/*function closePreviousCard(EO) {
+    EO = EO || window.event;
+    hasOpenedCard = false;
+    firstOpenedCar.classList.remove("smallCardAnimation");
+}*/
 
 function cleanCardField() {
     let allSmallCards = document.getElementsByClassName("frontFace");

@@ -131,26 +131,26 @@
      width: 30%;
      position: relative;
      transform-style: preserve-3d;
-     transition: transform .5s;
+     transform: scale(1);
+     transition: transform 0.7s;
  }
 
  .smallCards img {
      width: 100%;
      position: absolute;
-     backface-visibility: hidden;
+     
+ }
+ .backFace,.frontFace{
+  backface-visibility: hidden;   
  }
 
- #menu_on, #sound, .smallCards {
-     transform: scale(1);
- }
-
- .smallCards:active, #menu_on:hover, #menu_on:focus {
+ #menu_on:hover, #menu_on:focus {
      transform: scale(0.95);
      transition: transform 0.3s;
  }
 
  /*.backFace{
-     display: none;
+    z-index: 2;
  }
  .frontFace{
     display: none;
@@ -160,13 +160,17 @@
     opacity: 0;
  }*/
 
- .frontFace {
+ /*.smallCardAnimation .frontFace {
      transform: rotateY(180deg);
  }
-
- .smallCardAnimation {
+*/
+.smallCards.smallCardAnimation,.frontFace{
+    transform: rotateY(180deg);
+}
+ /*.smallCardAnimation {
      transform: rotateY(180deg);
- }
+     transition: transform 0.5s;
+ }*/
 
  @media screen and (min-width: 800px) {
      #rules {
