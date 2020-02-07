@@ -7,6 +7,11 @@ var gameplay = class Gameplay {
     }
 }
 
+let finalMonsterCounter = 0;
+let hasOpenedCard = false;
+var smallOpenedCard;
+var openedBigCards = [];
+
 var smallCards = [
     { "id": "ball", "src": "./img/smallCards/ball.png" }, { "id": "ballon", "src": "./img/smallCards/ballon.png" },
     { "id": "bear", "src": "./img/smallCards/bear.png" }, { "id": "bike", "src": "./img/smallCards/bike.png" },
@@ -16,8 +21,41 @@ var smallCards = [
     { "id": "plane", "src": "./img/smallCards/plane.png" }, { "id": "socks", "src": "./img/smallCards/socks.png" }
 ];
 
-let hasOpenedCard = false;
-var firstOpenedCar, secondOpenedCard;
+var bigCards = [
+    { "id": "car", "src": "./img/bigCards/monstr5_car.png" }, { "id": "car", "src": "./img/bigCards/monstr5_car.png" },
+    { "id": "ball", "src": "./img/bigCards/monstr4_ball.png" }, { "id": "ball", "src": "./img/bigCards/monstr6_ball.png" },
+    { "id": "ballon", "src": "./img/bigCards/monstr2_ballon.png" }, { "id": "ballon", "src": "./img/bigCards/monstr2_ballon.png" },
+    { "id": "bear", "src": "./img/bigCards/monstr5_bear.png" }, { "id": "bear", "src": "./img/bigCards/monstr7_bear.png" },
+    { "id": "bike", "src": "./img/bigCards/monstr6_bike.png" }, { "id": "bike", "src": "./img/bigCards/monstr6_bike.png" },
+    { "id": "doll", "src": "./img/bigCards/monstr4_doll.png" }, { "id": "doll", "src": "./img/bigCards/monstr1_doll.png" },
+    { "id": "drum", "src": "./img/bigCards/monstr2_drum.png" }, { "id": "drum", "src": "./img/bigCards/monstr3_drum.png" },
+    { "id": "duck", "src": "./img/bigCards/monstr6_duck.png" }, { "id": "duck", "src": "./img/bigCards/monstr1_duck.png" },
+    { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" }, { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" },
+    { "id": "plane", "src": "./img/bigCards/monstr3_plane.png" }, { "id": "plane", "src": "./img/bigCards/monstr7_plane.png" }
+];
+
+
+function compareRandom(a, b) {
+    return Math.random() - 0.5;
+}
+
+function sortBigCards() {
+    let sortArr = [];
+    let start = 0;
+    let bigCardNumber = 20;
+    while (start < bigCardNumber) {
+        sortArr.push(start++);
+    }
+    sortArr.sort(compareRandom);
+
+    for (let i = 0; i < sortArr.length; i++) {
+        bigCards[i]["numTemp"] = sortArr[i];
+    }
+    bigCards.sort((a, b) => {
+        return a.numTemp - b.numTemp;
+    });
+    addBigCards();
+}
 
 function sortSmallCards() {
     let sortArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -33,12 +71,43 @@ function sortSmallCards() {
     }
 
     addSmallCards();
-    addListeners();
+    addListenersSmall();
+}
+
+function addBigCards() {
+    //первая колода = 8 карт, 2 колода и 3 колода по 6 карт, итого распределено 20 карт
+    let numFirst = 8;
+    let numSecond = 14;
+
+    let firstDack = document.getElementById("firstCardDeck");
+    let secondDack = document.getElementById("secondCardDeck");
+    let thirdDack = document.getElementById("thirdCardDeck");
+
+    let openedCard = { "cardDeckNumber": 0, "id": bigCards[0].id };
+    openedBigCards.push(openedCard);
+    bigCards.forEach((value, key) => {
+        let newImg = document.createElement("img");
+        newImg.setAttribute("src", value.src);
+        newImg.setAttribute("alt", value.id);
+        newImg.setAttribute("data-img", value.id);
+        if (key < numFirst) {
+            newImg.setAttribute("class", "frontFaceFirst");
+            firstDack.prepend(newImg);
+        }
+        else if (key >= numFirst && key < numSecond) {
+            newImg.setAttribute("class", "frontFaceSecond");
+            secondDack.prepend(newImg);
+        }
+        else {
+            newImg.setAttribute("class", "frontFaceThird");
+            thirdDack.prepend(newImg);
+        }
+    });
 }
 
 function addSmallCards() {
     let allSmallCards = document.getElementsByClassName("smallCards");
-    smallCards.forEach((value, key) => {
+    smallCards.forEach(value => {
         let newImg = document.createElement("img");
         newImg.setAttribute("src", value.src);
         newImg.setAttribute("class", "frontFace");
@@ -48,8 +117,7 @@ function addSmallCards() {
     });
 }
 
-
-function addListeners() {
+function addListenersSmall() {
     let allSmallCards = document.querySelectorAll(".smallCards");
     for (let i = 0; i < allSmallCards.length; i++) {
         allSmallCards[i].addEventListener('click', openCard);
@@ -59,114 +127,53 @@ function addListeners() {
 function openCard(EO) {
     EO = EO || window.event;
 
+    if (smallOpenedCard == this) {
+        hasOpenedCard = false;
+        smallOpenedCard.classList.remove("smallCardAnimation");
+        smallOpenedCard = "";
+        return;
+    }
+
     if (!hasOpenedCard) {
         hasOpenedCard = true;
-        firstOpenedCar = this;
+        smallOpenedCard = this;
         this.classList.add("smallCardAnimation");
-        //this.removeEventListener('click', openCard);
-        //this.addEventListener('click', closePreviousCard);
-        return;
     }
-
-    if(firstOpenedCar==this){
-        hasOpenedCard = false;
-        firstOpenedCar.classList.remove("smallCardAnimation");
-        firstOpenedCar = "";
-        return;
+    else {
+        hasOpenedCard = true;
+        smallOpenedCard.classList.remove("smallCardAnimation");
+        this.classList.add("smallCardAnimation");
+        smallOpenedCard = this;
     }
+    checkCard();
 
-    hasOpenedCard = true;
-    firstOpenedCar.classList.remove("smallCardAnimation");
-    this.classList.add("smallCardAnimation");
-    firstOpenedCar = this;
-    /*closePreviousCard();
-    firstOpenedCar.addEventListener('click', openCard);
-    firstOpenedCar = this;
-    
-    hasOpenedCard = true;
-    
-    this.removeEventListener('click', openCard);
-    this.addEventListener('click', closePreviousCard);*/
 }
 
-/*function closePreviousCard(EO) {
-    EO = EO || window.event;
-    hasOpenedCard = false;
-    firstOpenedCar.classList.remove("smallCardAnimation");
-}*/
+function checkCard() {
 
+        openedBigCards.forEach(value => {
+           if(value.id == smallOpenedCard.attributes["data-img"].value) {
+               if(value.cardDeckNumber==0){
+                   ////////////////////////////////
+                   //тут нужна анимация удаления
+                   setTimeout(deleteChild, 0,"firstCardDeck");
+                
+               /* let openedCard = { "cardDeckNumber": 0, "id": document.getElementById("parent").lastChild.alt};
+                openedBigCards.push(openedCard);*/
+               }
+           }
+        });
+}
+function deleteChild(parentName){
+    document.getElementById(parentName).removeChild(document.getElementById(parentName).lastChild);   
+ 
+}
 function cleanCardField() {
     let allSmallCards = document.getElementsByClassName("frontFace");
     while (allSmallCards.length != 0) {
         allSmallCards[0].parentNode.removeChild(allSmallCards[0]);
     }
 }
-
-/*function toConstractCanvas() {
-
-    drawCanvas();
-
-}
-
-function drawCanvas() {
-
-    let cardField = document.getElementById("cardField");
-
-    let context = fieldCanvas.getContext("2d");
-    context.globalCompositeOperation = 'destination-out';
-    context.fillStyle = "rgba(0,0,0,1)";
-    context.fillRect(0, 0, fieldCanvas.width, fieldCanvas.height);
-    context.globalCompositeOperation = 'source-over';
-
-    let clientWidth = document.documentElement.clientWidth;
-
-    //начальные размеры изображения и отступов
-    let imgStartHeight= 150, imgHeight = 150;
-    let imgStartWidth = 200, imgWidth = 200;
-    let gap = 5;
-
-    let numberColumn = 4;
-    let numberRow = 3;
-
-    if (clientWidth >= 765 && clientWidth < 1300) {
-        imgHeight = imgStartHeight * 0.7;
-        imgWidth = imgStartWidth * 0.7;
-    }
-
-    if (clientWidth < 765) {
-        imgHeight = imgStartHeight * 0.3;
-        imgWidth = imgStartWidth * 0.3;
-    }
-
-    fieldCanvas.height = imgHeight * 3 + gap * 4;
-    cardField.style.height = fieldCanvas.height + "px";
-
-    fieldCanvas.width = imgWidth * 4 + gap * 3;
-    cardField.style.width = fieldCanvas.width + "px";
-    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    доделать!!! изменние процента в зависимотсти от высоты. если высота поля канваса больше половины поля, уменьшить маштаб*/
-
-    //cardField.appendChild(fieldCanvas);
-/*var img = new Image();
-img.src = "./img/back.png";
-img.onload = drawImg;
-
-function drawImg() {
-
-    let count = 0;
-
-    for (let i = 0, k = 0; i < numberRow; i++ , k = k + imgHeight + gap) {
-        for (let j = 0, m = 0; j < numberColumn; j++ , m = m + imgWidth + gap) {
-            context.drawImage(img, m, k, imgWidth, imgHeight);
-            smallCards[count]["X"] = m;
-            smallCards[count]["Y"] = k;
-            smallCards[count]["widht"] = imgWidth;
-            smallCards[count]["height"] = imgHeight;
-        }
-    }
-}
-
-}*/
 
 
 

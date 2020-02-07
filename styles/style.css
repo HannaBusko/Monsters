@@ -27,7 +27,7 @@
      outline: none;
  }
 
- #menu, #rules, #menu_on, #start {
+ #menu, #rules, #menu_on, #start,#finalMonster {
      display: none;
  }
 
@@ -39,8 +39,6 @@
  }
 
  main {
-     /*display: flex;*/
-     /* flex-direction: column;*/
      min-height: 100vh;
  }
 
@@ -101,6 +99,29 @@
     position: relative;
 }*/
 
+ #finalMonster {
+     float: left;
+     clear: left;
+     width: 7%;
+     margin-left: 1%;
+     margin-top: 20vh;
+     border: Solid 1px #080808;
+ }
+
+ #finalMonster img {
+     width: 100%;
+ }
+
+ #monsterField {
+     border: Solid 1px #ebe5e5;
+     width: 90%;
+     min-height: 39vh;
+     margin: 0px auto;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+ }
+
  #start {
      width: 80%;
      margin: 0px auto;
@@ -120,7 +141,7 @@
      flex-wrap: wrap;
      justify-content: space-between;
      width: 60%;
-     min-height: 470px;
+     min-height: 50vh;
      margin: 0px auto;
      border: Solid 1px #ebe5e5;
      perspective: 1000px;
@@ -138,10 +159,10 @@
  .smallCards img {
      width: 100%;
      position: absolute;
-     
  }
- .backFace,.frontFace{
-  backface-visibility: hidden;   
+
+ .backFace, .frontFace {
+     backface-visibility: hidden;
  }
 
  #menu_on:hover, #menu_on:focus {
@@ -149,7 +170,28 @@
      transition: transform 0.3s;
  }
 
- /*.backFace{
+ .smallCards.smallCardAnimation, .frontFace {
+     transform: rotateY(180deg);
+ }
+
+ #monsterField div {
+     max-width: 300px;
+     width: 30%;
+     margin: 0px auto;
+     position: relative;
+     border: Solid 1px #ebe5e5;
+ }
+
+ #monsterField img {
+     top: 50%;
+     transform: translate(0, -50%);
+     width: 90%;
+     position: absolute;
+     border-radius: 5%;
+     box-shadow: 1px 1px #141615, 2px 2px #eaa953, 3px 3px #141615, 4px 4px #ea9753, 5px 5px #141615, 6px 6px #ea9753, 7px 7px #141615;
+ }
+
+ /*.backFace{ bottom: 1vh;
     z-index: 2;
  }
  .frontFace{
@@ -164,9 +206,7 @@
      transform: rotateY(180deg);
  }
 */
-.smallCards.smallCardAnimation,.frontFace{
-    transform: rotateY(180deg);
-}
+
  /*.smallCardAnimation {
      transform: rotateY(180deg);
      transition: transform 0.5s;
@@ -188,12 +228,16 @@
          padding-right: 10%;
      }
      #cardField {
-         min-height: 300px;
+         min-height: 40vh;
      }
  }
+
+ /*!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ надо что-то добавить на препорциональную высоту и ширину. когда ширина большая, а высота маленькая)
+ или когда горизонатльное положение экрана. !!!!!!!!!!!!!!!! не сделано
 
  @media screen and (max-width: 600px) {
      #cardField {
          min-height: 200px;
      }
- }
+ }*/

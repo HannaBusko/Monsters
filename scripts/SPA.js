@@ -44,6 +44,7 @@ function SwitchToStateFromURLHash(param) {
             //  window.location.hash = 'Menu';
             // } else {
             changeRepresentation(state);
+            sortBigCards();
             sortSmallCards();
             // gameplay.startGame;
             // }
@@ -71,9 +72,12 @@ function SwitchToStateFromURLHash(param) {
 
         //изменение логики работы при изменении страницы
         stateElements.forEach((entry) => {
+
             let showElement = entry.state === state;
+
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
+            document.getElementById("finalMonster").style.display = (state != 'Start') ? 'none' : 'block';
 
             if (document.getElementById("sound").value == "on") {
                 if (oldHash === "#Start") {
@@ -88,8 +92,7 @@ function SwitchToStateFromURLHash(param) {
         });
 
         if (state === "Start") {
-            prefix = "Game | ";
-           // toConstractCanvas();   
+            prefix = "Game | ";  
         }
         title = prefix + 'Уходи, чудовище!';
         document.getElementsByTagName('title')[0].innerHTML = title;
