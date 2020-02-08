@@ -113,7 +113,6 @@
  }
 
  #monsterField {
-     border: Solid 1px #ebe5e5;
      width: 90%;
      min-height: 39vh;
      margin: 0px auto;
@@ -187,7 +186,6 @@
      width: 30%;
      margin: 0px auto;
      position: relative;
-     border: Solid 1px #ebe5e5;
  }
 
  #monsterField img {
