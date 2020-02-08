@@ -1,1 +1,1 @@
-https://HannaBusko.github.io/monsters.github.io
+https://HannaBusko.github.io/monsters
