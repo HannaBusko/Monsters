@@ -1,1 +1,1 @@
-https://HannaBusko.github.io/Monsters/index.html
+https://HannaBusko.github.io/Monsters/index
