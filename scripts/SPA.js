@@ -44,8 +44,7 @@ function SwitchToStateFromURLHash(param) {
             //  window.location.hash = 'Menu';
             // } else {
             changeRepresentation(state);
-            sortBigCards();
-            sortSmallCards();
+            initGame();
             // gameplay.startGame;
             // }
             break;
@@ -77,7 +76,7 @@ function SwitchToStateFromURLHash(param) {
 
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
-            document.getElementById("finalMonster").style.display = (state != 'Start') ? 'none' : 'block';
+            //document.getElementById("finalMonster").style.display = (state != 'Start') ? 'none' : 'block';
 
             if (document.getElementById("sound").value == "on") {
                 if (oldHash === "#Start") {
