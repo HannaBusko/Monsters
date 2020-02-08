@@ -137,7 +137,6 @@
      width: 80%;
      margin-top: 4vh;
      height: 90vh;
-     border: Solid 1px #ebe5e5;
      position: absolute;
  }
 
@@ -149,7 +148,6 @@
      width: 60%;
      min-height: 50vh;
      margin: 0px auto;
-     border: Solid 1px #ebe5e5;
      perspective: 1000px;
  }
 
