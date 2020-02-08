@@ -1,2 +1,2 @@
 # Monsters
-game for ITAcademy
+https://HannaBusko.github.io/Monsters/index.html
