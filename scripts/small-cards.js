@@ -34,22 +34,26 @@ function openSmallCard(EO) {
     EO = EO || window.event;
 
     if (constantVariables.smallOpenedCard == this) {
-        constantVariables.hasOpenedCard = false;
-        constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
-        constantVariables.smallOpenedCard = "";
-        return;
-    }
-
-    if (!constantVariables.hasOpenedCard) {
-        constantVariables.hasOpenedCard = true;
-        constantVariables.smallOpenedCard = this;
-        this.classList.add("flipCardAnimation");
+        checkDoubleCall();
     }
     else {
-        constantVariables.hasOpenedCard = true;
-        constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
-        this.classList.add("flipCardAnimation");
-        constantVariables.smallOpenedCard = this;
+        if (!constantVariables.hasOpenedCard) {
+            constantVariables.hasOpenedCard = true;
+            constantVariables.smallOpenedCard = this;
+            this.classList.add("flipCardAnimation");
+        }
+        else {
+            constantVariables.hasOpenedCard = true;
+            constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
+            this.classList.add("flipCardAnimation");
+            constantVariables.smallOpenedCard = this;
+        }
+        checkCard();
     }
-    checkCard();
+}
+
+function checkDoubleCall(){
+    constantVariables.hasOpenedCard = false;
+    constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
+    constantVariables.smallOpenedCard = "";
 }
