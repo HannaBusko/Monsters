@@ -13,7 +13,7 @@ function SwitchToStateFromURLHash(param) {
     }
     console.log('Закладка изменилась: ', URLHash);
 
-    if(oldHash === "#Start"){
+    if (oldHash === "#Start") {
         cleanCardField();
     }
     //Заменяет каждую управляющую последовательность в закодированном компоненте URI соответствующим ей символом.
@@ -76,7 +76,13 @@ function SwitchToStateFromURLHash(param) {
 
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
-            //document.getElementById("finalMonster").style.display = (state != 'Start') ? 'none' : 'block';
+            
+            if(state != 'Start'){
+               document.getElementById("firstFinalPart").style.display = 'none'; 
+               document.getElementById("secondFinalPart").style.display = 'none'; 
+               document.getElementById("thirdFinalPart").style.display = 'none'; 
+            }
+            
 
             if (document.getElementById("sound").value == "on") {
                 if (oldHash === "#Start") {
@@ -91,7 +97,7 @@ function SwitchToStateFromURLHash(param) {
         });
 
         if (state === "Start") {
-            prefix = "Game | ";  
+            prefix = "Game | ";
         }
         title = prefix + 'Уходи, чудовище!';
         document.getElementsByTagName('title')[0].innerHTML = title;

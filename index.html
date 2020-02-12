@@ -21,10 +21,10 @@
         <audio id="audioplayerStart" preload loop></audio>
         <input id="menu_on" type="image" title="Меню" value="off" src="./img/back_menu.png" alt="Вызов меню"
             onclick="switchToMenuPage()">
-        <div id="finalMonster">
-            <img src="img/big1.png" alt="first part">
-            <img src="img/big2.png" alt="first part">
-            <img src="img/big3.png" alt="first part">
+        <div class="finalMonster">
+            <img id="firstFinalPart" src="img/big1.png" alt="first part">
+            <img id="secondFinalPart"src="img/big2.png" alt="second part">
+            <img id="thirdFinalPart"src="img/big3.png" alt="third part">
         </div>
     </header>
     <main>
@@ -144,6 +144,7 @@
     <script src="./scripts/game-logic.js"></script>
     <script src="./scripts/small-cards.js"></script>
     <script src='./scripts/big-cards.js'></script>
+    <script src='./scripts/final-monster.js'></script>
     <script src='./scripts/init-game.js'></script>
     <script src='./scripts/SPA.js'></script>
 

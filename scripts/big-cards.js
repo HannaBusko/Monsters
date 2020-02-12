@@ -30,8 +30,8 @@ function addBigCards(bigCards) {
     constantVariables.openedBigCards.push(openedCard);
     openedCard = { "cardDeck": dacks[2], "id": bigCards[14].id, "toDelete": false };
     constantVariables.openedBigCards.push(openedCard);
-    bigCards.forEach((card, index) => {
-        drawBigCards(card, index, dacks);
+    bigCards.forEach((card, index,array) => {
+        drawBigCards(card, index,array.length/3, dacks);
     });
 
     dacks.forEach(addBigCardBack);
@@ -39,13 +39,13 @@ function addBigCards(bigCards) {
 }
 
 
-function drawBigCards(value, index, dacks) {
+function drawBigCards(value, index,size, dacks) {
 
     let newImg = document.createElement("img");
     newImg.setAttribute("src", value.src);
     newImg.setAttribute("alt", value.id);
     newImg.setAttribute("data-img", value.id);
-    let dackElem = dacks[Math.floor(index / 7)];
+    let dackElem = dacks[Math.floor(index /size)];
     newImg.setAttribute("class", "frontFaceBigCard");
     dackElem.prepend(newImg);
 }

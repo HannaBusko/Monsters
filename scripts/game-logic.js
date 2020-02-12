@@ -12,6 +12,7 @@ function checkCard() {
             needToDelete++;
             deleteBigCard(value.cardDeck);
         }
+
     });
 
     if (needToDelete) {
@@ -22,5 +23,9 @@ function checkCard() {
             }
         }, 200);
     }
-}
+    else {
+        constantVariables.finalMonsterCounter++;
+        checkFinalMonster();
+    }
 
+}

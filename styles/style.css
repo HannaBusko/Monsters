@@ -26,8 +26,7 @@
  #menu_on:hover, #menu_on:active, #menu_on:focus {
      outline: none;
  }
-
- #menu, #rules, #menu_on, #start, #finalMonster {
+ #menu, #rules, #menu_on, #start  {
      display: none;
  }
 
@@ -98,19 +97,6 @@
  /* #start{margin-top: 5vh;
     position: relative;
 }*/
-
- #finalMonster {
-     float: left;
-     clear: left;
-     width: 7%;
-     margin-left: 1%;
-     margin-top: 20vh;
-     border: Solid 1px #080808;
- }
-
- #finalMonster img {
-     width: 100%;
- }
 
  #monsterField {
      width: 90%;
@@ -205,6 +191,41 @@
          top:100%;
      }
  }
+
+ .finalMonster {
+    float: left;
+    clear: left;
+    width: 7%;
+    margin-left: 1%;
+    margin-top: 20vh;
+    border: Solid 1px #080808;
+    transform-style: preserve-3d;
+}
+
+.finalMonster img {
+    width: 100%;
+    
+    display: none;
+    
+}
+ .finalMonsterAnimation{
+    animation-iteration-count: 0;
+    animation: notransform 3s ease;
+    /*transform: scale3d(0,0,1);
+    animation-delay: 0.5s;*/
+ }
+
+ @keyframes notransform {
+     0%{
+        transform: scale3d(0,0,0);  
+     }
+     50%{
+           transform: scale3d(0,0,1); 
+     }
+    100% {
+        transform: none;
+    }
+  }
 
  /*.backFace{ bottom: 1vh;
     z-index: 2;
