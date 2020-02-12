@@ -8,10 +8,9 @@ function loadBigCards() {
         { "id": "doll", "src": "./img/bigCards/monstr4_doll.png" }, { "id": "doll", "src": "./img/bigCards/monstr1_doll.png" },
         { "id": "drum", "src": "./img/bigCards/monstr2_drum.png" }, { "id": "drum", "src": "./img/bigCards/monstr3_drum.png" },
         { "id": "duck", "src": "./img/bigCards/monstr6_duck.png" }, { "id": "duck", "src": "./img/bigCards/monstr1_duck.png" },
-        { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" }, { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" },
-        { "id": "duck", "src": "./img/bigCards/monstr6_duck.png" }, { "id": "duck", "src": "./img/bigCards/monstr1_duck.png" },
-        { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" }, { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" },
-        { "id": "plane", "src": "./img/bigCards/monstr3_plane.png" }, { "id": "plane", "src": "./img/bigCards/monstr7_plane.png" }
+        { "id": "jula", "src": "./img/bigCards/monstr9_jula.png" }, { "id": "jula", "src": "./img/bigCards/monstr8_jula.png" },
+        { "id": "plane", "src": "./img/bigCards/monstr7_plane.png" }, { "id": "plane", "src": "./img/bigCards/monstr3_plane.png" },
+        { "id": "jula", "src": "./img/bigCards/monstr9_jula.png" }
     ];
 }
 

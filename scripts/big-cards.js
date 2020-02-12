@@ -1,7 +1,7 @@
 function sortBigCards(bigCards) {
     let sortArr = [];
     let start = 0;
-    let bigCardNumber = 20;
+    let bigCardNumber = 21;
     while (start < bigCardNumber) {
         sortArr.push(start++);
     }
@@ -19,18 +19,16 @@ function sortBigCards(bigCards) {
 
 function addBigCards(bigCards) {
 
-    let numCard = 8;
-
-    let dacks = [
+    dacks = [
         document.getElementById("firstCardDeck"),
         document.getElementById("secondCardDeck"),
         document.getElementById("thirdCardDeck")
     ]
-    let openedCard = { "cardDeckNumber": 0, "id": bigCards[0].id, "toDelete": false };
+    let openedCard = { "cardDeck": dacks[0], "id": bigCards[0].id, "toDelete": false };
     constantVariables.openedBigCards.push(openedCard);
-    openedCard = { "cardDeckNumber": 1, "id": bigCards[8].id, "toDelete": false };
+    openedCard = { "cardDeck": dacks[1], "id": bigCards[7].id, "toDelete": false };
     constantVariables.openedBigCards.push(openedCard);
-    openedCard = { "cardDeckNumber": 2, "id": bigCards[16].id, "toDelete": false };
+    openedCard = { "cardDeck": dacks[2], "id": bigCards[14].id, "toDelete": false };
     constantVariables.openedBigCards.push(openedCard);
     bigCards.forEach((card, index) => {
         drawBigCards(card, index, dacks);
@@ -38,8 +36,6 @@ function addBigCards(bigCards) {
 
     dacks.forEach(addBigCardBack);
     dacks.forEach(deleteBigCardBack);
-    // deleteBigCardBack(dacks[0]);
-
 }
 
 
@@ -49,8 +45,7 @@ function drawBigCards(value, index, dacks) {
     newImg.setAttribute("src", value.src);
     newImg.setAttribute("alt", value.id);
     newImg.setAttribute("data-img", value.id);
-
-    let dackElem = dacks[Math.floor(index / 8)];
+    let dackElem = dacks[Math.floor(index / 7)];
     newImg.setAttribute("class", "frontFaceBigCard");
     dackElem.prepend(newImg);
 }
@@ -66,11 +61,15 @@ function deleteBigCard(dack) {
     removingElem.style.opacity = 0;
 
     setTimeout(() => {
-        checkDoubleCall();
         dack.removeChild(removingElem);
         brokenGlass.style.zIndex = -1;
-        brokenGlass.style.opacity = 1;
-        constantVariables.openedBigCards.push({ "cardDeckNumber": 0, "id": dack.lastElementChild.alt, "toDelete": false });
+        let nextCard = dack.lastElementChild;
+        if (dack.children.length > 1) {
+            brokenGlass.style.opacity = 1;
+        }
+        if (nextCard.className != "glass") {
+            constantVariables.openedBigCards.push({ "cardDeck": dack, "id": nextCard.alt, "toDelete": false });
+        }
     }, 1500);
 
 }
