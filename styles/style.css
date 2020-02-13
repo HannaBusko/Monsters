@@ -26,7 +26,8 @@
  #menu_on:hover, #menu_on:active, #menu_on:focus {
      outline: none;
  }
- #menu, #rules, #menu_on, #start  {
+
+ #menu, #rules, #menu_on, #start {
      display: none;
  }
 
@@ -93,10 +94,6 @@
      color: rgb(236, 139, 49);
      margin-bottom: 1%;
  }
-
- /* #start{margin-top: 5vh;
-    position: relative;
-}*/
 
  #monsterField {
      width: 90%;
@@ -188,44 +185,58 @@
      }
      100% {
          width: 1%;
-         top:100%;
+         top: 100%;
      }
  }
 
  .finalMonster {
-    float: left;
-    clear: left;
-    width: 7%;
-    margin-left: 1%;
-    margin-top: 20vh;
-    border: Solid 1px #080808;
-    transform-style: preserve-3d;
-}
+     float: left;
+     clear: left;
+     width: 7%;
+     margin-left: 1%;
+     margin-top: 20vh;
+     transform-style: preserve-3d;
+     text-align: center;
+ }
 
-.finalMonster img {
-    width: 100%;
-    
-    display: none;
-    
-}
- .finalMonsterAnimation{
-    animation-iteration-count: 0;
-    animation: notransform 3s ease;
-    /*transform: scale3d(0,0,1);
-    animation-delay: 0.5s;*/
+ .finalMonster img {
+     width: 100%;
+     display: none;
+ }
+
+ .finalMonsterAnimation {
+     animation-iteration-count: 0;
+     animation: notransform 2s ease-in;
+ }
+
+ #counterImg {
+     background-image: url(../img/count2.png);
+     background-repeat: no-repeat;
+     background-position: 0px 0px; 
+     height: 70px;
+     width: 60px;
+     margin: 0px auto;
+     display: none;
  }
 
  @keyframes notransform {
-     0%{
-        transform: scale3d(0,0,0);  
+     0% {
+         transform: scale3d(0, 0, 0);
      }
-     50%{
-           transform: scale3d(0,0,1); 
+     50% {
+         transform: scale3d(0, 0, 1);
      }
-    100% {
-        transform: none;
-    }
-  }
+     100% {
+         transform: none;
+     }
+ }
+
+ .finalMonster h4{
+     color: #df95c8;
+     font-family:cursive;
+ }
+
+
 
  /*.backFace{ bottom: 1vh;
     z-index: 2;

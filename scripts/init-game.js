@@ -25,6 +25,13 @@ function loadSmallCards() {
     ];
 }
 
+function loadSprintPosition(){
+    return [
+        {"count":4, "position":"0px"},{"count":1, "position":"-49px"},
+        {"count":2, "position":"-98px"},{"count":3, "position":"-145px"}
+    ];
+}
+
 var constantVariables = {
     "finalMonsterCounter": 0,
     "openedBigCards": []

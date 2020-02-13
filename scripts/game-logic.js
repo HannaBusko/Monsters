@@ -26,6 +26,7 @@ function checkCard() {
     else {
         constantVariables.finalMonsterCounter++;
         checkFinalMonster();
+        checkFinalCounter();
     }
 
 }
