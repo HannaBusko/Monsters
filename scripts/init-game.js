@@ -66,3 +66,11 @@ function cleanCardField() {
         constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
     }
 }
+
+function returnFirstPosition(){
+    document.getElementById("firstFinalPart").style.display = 'none';
+    document.getElementById("secondFinalPart").style.display = 'none';
+    document.getElementById("thirdFinalPart").style.display = 'none';
+    document.getElementById("loss").style.display ='none';
+    document.getElementById("counterImg").style.backgroundPosition =" 0px 0px";
+}

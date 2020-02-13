@@ -22,11 +22,13 @@
         <input id="menu_on" type="image" title="Меню" value="off" src="./img/back_menu.png" alt="Вызов меню"
             onclick="switchToMenuPage()">
         <div class="finalMonster">
-            <h4>Ошибки</h4>
-            <div id="counterImg"></div>
+            <div id="counterPart">
+                <h4>Ошибки</h4>
+                <div id="counterImg"></div>
+            </div>
             <img id="firstFinalPart" src="img/big1.png" alt="first part">
-            <img id="secondFinalPart"src="img/big2.png" alt="second part">
-            <img id="thirdFinalPart"src="img/big3.png" alt="third part">
+            <img id="secondFinalPart" src="img/big2.png" alt="second part">
+            <img id="thirdFinalPart" src="img/big3.png" alt="third part">
         </div>
     </header>
     <main>
@@ -134,15 +136,32 @@
                 </div>
             </div>
         </div>
-       <!-- <div id="finish">
-            <div class="win">
-                <span>У</span>
-                <span>Р</span>
-                <span>А</span>
+        <div id="loss">
+            <div class=eyes>
+                <img class="eye_left" src="img/eyeL.png" alt="left eye">
+            </div>
+            <div class="animatedTears">
+                <div class=tears>
+                    <div class=drop></div>
+                    <div class=drop></div>
+                    <div class=drop></div>
+                    <div class=drop></div>
+                    <div class=drop></div>
+                    <!---->
+                </div>
+                <div class=surface>
+                    <div class=hit></div>
+                    <div class=hit></div>
+                    <div class=hit></div>
+                    <div class=hit></div>
+                    <div class=hit></div>
+                </div>
             </div>
         </div>
-        всякое <footer><div id="cardField">
-                    
+        <!-- всякое <footer><div id="cardField">
+                   <span>У</span>
+                <span>Р</span>
+                <span>А</span> 
                 </div>
             <canvas id="cvs"></canvas>
             <img src="./img/footer.png">

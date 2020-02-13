@@ -25,8 +25,16 @@ function checkCard() {
     }
     else {
         constantVariables.finalMonsterCounter++;
-        checkFinalMonster();
-        checkFinalCounter();
+        if (constantVariables.finalMonsterCounter == 16) {
+            document.getElementById("loss").style.display = "block";
+            removeListenersSmall();
+            constantVariables.finalMonsterCounter = 0;
+        }
+        else {
+            checkFinalMonster();
+            checkFinalCounter();
+        }
+
     }
 
 }

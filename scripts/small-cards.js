@@ -30,6 +30,13 @@ function addListenersSmall() {
     }
 }
 
+function removeListenersSmall() {
+    let allSmallCards = document.querySelectorAll(".smallCards");
+    for (let i = 0; i < allSmallCards.length; i++) {
+        allSmallCards[i].removeEventListener('click', openSmallCard);
+    }
+}
+
 function openSmallCard(EO) {
     EO = EO || window.event;
 
@@ -52,7 +59,7 @@ function openSmallCard(EO) {
     }
 }
 
-function checkDoubleCall(){
+function checkDoubleCall() {
     constantVariables.hasOpenedCard = false;
     constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
     constantVariables.smallOpenedCard = "";

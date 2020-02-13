@@ -16,43 +16,21 @@ function SwitchToStateFromURLHash(param) {
     if (oldHash === "#Start") {
         cleanCardField();
     }
-    //Заменяет каждую управляющую последовательность в закодированном компоненте URI соответствующим ей символом.
-
+ 
     let state = decodeURIComponent(URLHash.substr(1));
-
-    //?????????????????????
-    // let confirmFlag = true;
 
     switch (state) {
         case 'Menu':
-            // if (gameplay.isPlaying) {
-            //    if (!(confirm('Внимание! Текущий прогресс игры будет потерян'))) {
-            // confirmFlag = false;
-            // }
-            // }
-
-            //if (confirmFlag) {
             changeRepresentation(state);
-            // gameplay.stopGame;
-            //} else {
-            // history.replaceState('Start');
-            // }
             break;
 
         case 'Start':
-            // if (param === true) {
-            //  window.location.hash = 'Menu';
-            // } else {
             changeRepresentation(state);
             initGame();
-            // gameplay.startGame;
-            // }
             break;
 
         case 'Rules':
             changeRepresentation(state);
-            //gameplay.showRecords();
-            //gameplay.showRules();
             break;
 
         default:
@@ -76,13 +54,12 @@ function SwitchToStateFromURLHash(param) {
 
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
+            document.getElementById("counterPart").style.display = (state != 'Start') ? 'none' : 'block';
             
-            if(state != 'Start'){
-               document.getElementById("firstFinalPart").style.display = 'none'; 
-               document.getElementById("secondFinalPart").style.display = 'none'; 
-               document.getElementById("thirdFinalPart").style.display = 'none'; 
+
+            if (state != 'Start') {
+                returnFirstPosition();
             }
-            
 
             if (document.getElementById("sound").value == "on") {
                 if (oldHash === "#Start") {
@@ -134,11 +111,3 @@ function switchToRulesPage() {
     switchToState({ pagename: 'Rules' });
 }
 
-//window.onresize = IsNeedRedrawCanvas;
-/*function IsNeedRedrawCanvas() {
-    let URLHash = window.location.hash;
-    let state = decodeURIComponent(URLHash.substr(1));
-    if (state == "Start") {
-        drawCanvas();
-    }
-}*/
