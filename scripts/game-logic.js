@@ -21,15 +21,21 @@ function checkCard() {
                 constantVariables.openedBigCards.splice(constantVariables.openedBigCards.findIndex(elem => elem.toDelete, true), 1);
                 needToDelete--;
             }
+            setTimeout(() => {
+                if (constantVariables.openedBigCards.length == 0) {
+                    gameOver();
+                    document.getElementById("win").style.display = "block";
+                }
+            }, 1400);
         }, 200);
+        /* */
     }
     else {
         constantVariables.finalMonsterCounter++;
         if (constantVariables.finalMonsterCounter == 16) {
             checkFinalCounter();
             document.getElementById("loss").style.display = "block";
-            removeListenersSmall();
-            constantVariables.finalMonsterCounter = 0;
+            gameOver();
         }
         else {
             checkFinalMonster();
@@ -38,4 +44,10 @@ function checkCard() {
 
     }
 
+}
+
+
+function gameOver() {
+    removeListenersSmall();
+    constantVariables.finalMonsterCounter = 0;
 }

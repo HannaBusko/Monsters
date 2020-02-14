@@ -9,19 +9,17 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/background.css">
     <!--<link rel="stylesheet" type="text/css" href="styles/adaptive.css">-->
-    <!--<link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">-->
-    <!--<script type="text/javascript" src="js/jquery-min.js"></script>-->
 </head>
 
 <body>
-    <header>
+   <header>
         <input id="sound" type="image" title="Звук" value="off" src="./img/sound3_stop.png"
             alt="Включение/выключение звука">
         <audio id="audioplayerMenu" preload loop></audio>
         <audio id="audioplayerStart" preload loop></audio>
         <input id="menu_on" type="image" title="Меню" value="off" src="./img/back_menu.png" alt="Вызов меню"
-            onclick="switchToMenuPage()">
-        <div class="finalMonster">
+            onclick="switchToMenuPage()"><!-- -->
+        <div class="FinalMonster">
             <div id="counterPart">
                 <h4>Попытки</h4>
                 <div id="counterImg"></div>
@@ -31,19 +29,21 @@
             <img id="thirdFinalPart" src="img/big3.png" alt="third part">
         </div>
     </header>
+</body>
+
+</html>
     <main>
         <div id="menu">
-            <div class="logo"></div>
+            <div class="Logo"></div>
             <nav>
-                <ul class="mainMenu">
+                <ul class="MainMenu">
                     <li><button onclick="switchToGamePage()">Играть</button></li>
-                    <!-- <li><button onclick="startGame()">Рекорды </button></li><button onclick="startGame()">Правила</button>-->
                     <li><button onclick="switchToRulesPage()"> Правила</li>
                 </ul>
             </nav>
         </div>
         <div id="rules">
-            <article class="rules-info">
+            <article class="RulesInfo">
                 <h1>Доброй ночи, чудовище!</h1>
                 <p>Вечером мир выглядит иначе. Таинственные тени появляются на стенах…Чудовища подкрадываются к кровати…
                     Ты не можешь заснуть? Ты боишься
@@ -71,86 +71,85 @@
         <div id="start">
             <div id="memoryBox">
                 <div id="cardField">
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
-                    <div class="smallCards">
-                        <img class="backFace" src="img/back.svg" alt="backImg">
+                    <div class="SmallCards">
+                        <img class="BackFace" src="img/back.svg" alt="backImg">
                     </div>
                 </div>
                 <div id="monsterField">
                     <div id="firstCardDeck">
-                        <img class="backFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
+                        <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
                     </div>
                     <div id="secondCardDeck">
-                        <img class="backFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
+                        <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
                     </div>
                     <div id="thirdCardDeck">
-                        <img class="backFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
+                        <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
                     </div>
                 </div>
             </div>
         </div>
         <div id="loss">
-            <div class=eyes>
-                <img class="eye_left" src="img/eyeL.png" alt="left eye">
+            <div class=Eyes>
+                <img class="EyeLeft" src="img/eyeL.png" alt="left eye">
             </div>
-            <div class="animatedTears">
-                <div class=tears>
-                    <div class=drop></div>
-                    <div class=drop></div>
-                    <div class=drop></div>
-                    <div class=drop></div>
-                    <div class=drop></div>
-                    <!---->
+            <div class="AnimatedTears">
+                <div class=Tears>
+                    <div class=Drop></div>
+                    <div class=Drop></div>
+                    <div class=Drop></div>
+                    <div class=Drop></div>
+                    <div class=Drop></div>
                 </div>
-                <div class=surface>
-                    <div class=hit></div>
-                    <div class=hit></div>
-                    <div class=hit></div>
-                    <div class=hit></div>
-                    <div class=hit></div>
+                <div class=Surface>
+                    <div class=Hit></div>
+                    <div class=Hit></div>
+                    <div class=Hit></div>
+                    <div class=Hit></div>
+                    <div class=Hit></div>
                 </div>
             </div>
         </div>
         <div id="win">
-                <span>П</span>
-                <span>О</span>
-                <span>Б</span>
-                <span>Е</span>
-                <span>Д</span>
-                <span>А</span>   
-        </div>
+            <span>П</span>
+            <span>О</span>
+            <span>Б</span>
+            <span>Е</span>
+            <span>Д</span>
+            <span>А</span>   
+    </div>
         <!-- всякое <footer><div id="cardField">
                    <span>У</span>
                 <span>Р</span>
@@ -158,17 +157,15 @@
                 </div>
             <canvas id="cvs"></canvas>
             <img src="./img/footer.png">
-        </footer> -->
-    </main>
-    <!--<div class="load" style="display: none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>-->
-    <script src="./scripts/core.js"></script>
+        </footer>-->  
+   
+    <!--<div class="load" style="display: none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+   -->
     <script src="./scripts/game-logic.js"></script>
     <script src="./scripts/small-cards.js"></script>
     <script src='./scripts/big-cards.js'></script>
     <script src='./scripts/final-monster.js'></script>
     <script src='./scripts/init-game.js'></script>
+     <script src="./scripts/core.js"></script>
     <script src='./scripts/SPA.js'></script>
-
-</body>
-
-</html>
+</main>

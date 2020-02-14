@@ -76,7 +76,7 @@ function SwitchToStateFromURLHash(param) {
         if (state === "Start") {
             prefix = "Game | ";
         }
-        title = prefix + 'Уходи, чудовище!';
+        title = prefix + 'Доброй ночи, чудовище!';
         document.getElementsByTagName('title')[0].innerHTML = title;
     }
 }

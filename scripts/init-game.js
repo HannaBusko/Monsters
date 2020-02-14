@@ -60,12 +60,12 @@ function initGame() {
 }
 
 function cleanCardField() {
-    let allSmallCards = document.getElementsByClassName("frontFace");
+    let allSmallCards = document.getElementsByClassName("FrontFace");
     while (allSmallCards.length != 0) {
         allSmallCards[0].parentNode.removeChild(allSmallCards[0]);
     }
     if (constantVariables.smallOpenedCard) {
-        constantVariables.smallOpenedCard.classList.remove("flipCardAnimation");
+        constantVariables.smallOpenedCard.classList.remove("FlipCardAnimation");
     }
 }
 
@@ -74,4 +74,5 @@ function returnFirstPosition() {
     document.getElementById("secondFinalPart").style.display = 'none';
     document.getElementById("thirdFinalPart").style.display = 'none';
     document.getElementById("loss").style.display = 'none';
+    document.getElementById("win").style.display = 'none';
 }

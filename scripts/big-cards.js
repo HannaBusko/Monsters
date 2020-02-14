@@ -67,10 +67,10 @@ function deleteBigCard(dack) {
         if (dack.children.length > 1) {
             brokenGlass.style.opacity = 1;
         }
-        if (nextCard.className != "glass") {
+        if (nextCard.className != "Glass") {
             constantVariables.openedBigCards.push({ "cardDeck": dack, "id": nextCard.alt, "toDelete": false });
         }
-    }, 1500);
+    }, 1300);
 
 }
 
@@ -78,7 +78,7 @@ function addBigCardBack(value) {
     let newImg = document.createElement("img");
     newImg.setAttribute("src", "img/glass.png");
     newImg.setAttribute("alt", "broken glass");
-    newImg.setAttribute("class", "glass");
+    newImg.setAttribute("class", "Glass");
     value.prepend(newImg)
 }
 

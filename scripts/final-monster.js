@@ -15,7 +15,7 @@ function checkFinalMonster() {
 }
 
 function changeFinalMonsterStyle(partOfMonster) {
-    partOfMonster.classList.add("finalMonsterAnimation");
+    partOfMonster.classList.add("FinalMonsterAnimation");
     partOfMonster.style.display = "block";
 }
 

@@ -1,421 +1,432 @@
- * {
-     margin: 0px;
-     padding: 0px;
- }
+@import url('https://fonts.googleapis.com/css?family=Ruslan+Display&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
- body {
-     max-width: 2500px;
- }
+body {
+    max-width: 2500px;
+}
 
- #sound {
-     float: right;
-     width: 7%;
-     display: block;
- }
+#sound {
+    float: right;
+    width: 7%;
+    display: block;
+}
 
- #sound:hover, #sound:active, #sound:focus {
-     outline: none;
- }
+#sound:hover, #sound:active, #sound:focus {
+    outline: none;
+}
 
- #menu_on {
-     float: left;
-     width: 7%;
-     transform: scale(1);
- }
+#menu_on {
+    float: left;
+    width: 7%;
+    transform: scale(1);
+}
 
- #menu_on:hover, #menu_on:active, #menu_on:focus {
-     outline: none;
- }
+#menu_on:hover, #menu_on:active, #menu_on:focus {
+    outline: none;
+}
 
- #menu, #rules, #menu_on, #start, #loss {
-     display: none;
- }
-
- /**/
-
- .logo {
-     width: 100%;
-     height: 30vh;
-     background: url(../img/logo.png) center no-repeat;
-     background-size: contain;
- }
-
- main {
-     min-height: 100vh;
- }
-
- #rules {
-     flex: 1 1 auto;
-     height: 100vh;
-     background: url(../img/rules.png) center no-repeat;
-     position: relative;
-     overflow-y: auto;
- }
-
- .rules-info {
-     position: absolute;
-     left: 50%;
-     padding-top: 15vh;
-     margin-bottom: 5vh;
-     margin-right: -50%;
-     transform: translate(-50%, 0%);
-     text-align: justify;
- }
-
- .rules-info h1, .rules-info h2, .rules-info h3 {
-     font-family: 'Lobster', cursive;
-     text-align: center;
- }
-
- .rules-info h1 {
-     font-size: 2.5rem;
- }
-
- nav {
-     margin: auto;
- }
-
- .mainMenu {
-     list-style: none;
-     padding-top: 15vh;
-     text-align: center;
-     height: 40vh;
-     background: url(../img/menu.png) center no-repeat;
-     background-size: contain;
- }
-
- .mainMenu button {
-     width: 45vw;
-     max-width: 260px;
-     height: 6vh;
-     background-color: transparent;
-     border: ridge rgb(112, 60, 17);
-     border-radius: 10% /45%;
-     font-size: 4vh;
-     font-family: Arciform Sans cyr-lat;
-     color: rgb(236, 139, 49);
-     margin-bottom: 1%;
- }
-
- #monsterField {
-     width: 90%;
-     min-height: 39vh;
-     margin: 0px auto;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-between;
- }
-
- #start {
-     width: 80%;
-     margin: 0px auto;
-     min-height: 100vh;
- }
-
- .glass {
-     z-index: -1;
-     transition: opacity 2s;
- }
-
- #memoryBox {
-     width: 80%;
-     margin-top: 4vh;
-     height: 90vh;
-     position: absolute;
- }
-
- #cardField {
-     transform: translateZ(0);
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-between;
-     width: 60%;
-     min-height: 50vh;
-     margin: 0px auto;
-     perspective: 1000px;
- }
-
- .smallCards {
-     max-width: 200px;
-     width: 30%;
-     position: relative;
-     transform-style: preserve-3d;
-     transform: scale(1);
-     transition: transform 0.8s;
- }
-
- .smallCards img {
-     width: 100%;
-     position: absolute;
- }
-
- .backFace, .frontFace {
-     backface-visibility: hidden;
- }
-
- #menu_on:hover, #menu_on:focus {
-     transform: scale(0.95);
-     transition: transform 0.8s;
- }
-
- .smallCards.flipCardAnimation, .frontFace {
-     transform: rotateY(180deg);
- }
-
- #monsterField div {
-     max-width: 300px;
-     width: 30%;
-     margin: 0px auto;
-     position: relative;
-     transform: translateZ(0);
- }
-
- #monsterField img {
-     top: 50%;
-     transform: translate(0, -50%);
-     width: 90%;
-     position: absolute;
-     border-radius: 5%;
-     transition: opacity 2s;
-     box-shadow: 1px 1px #141615, 2px 2px #eaa953, 3px 3px #141615, 4px 4px #ea9753, 5px 5px #141615, 6px 6px #ea9753, 7px 7px #141615;
- }
-
- @keyframes Anim {
-     0% {
-         width: 90%;
-         top: 50%;
-     }
-     100% {
-         width: 1%;
-         top: 100%;
-     }
- }
-
- .finalMonster {
-     float: left;
-     clear: left;
-     width: 7%;
-     margin-left: 1%;
-     margin-top: 20vh;
-     transform-style: preserve-3d;
-     text-align: center;
- }
-
- .finalMonster img {
-     width: 100%;
-     display: none;
- }
-
- .finalMonsterAnimation {
-     animation-iteration-count: 0;
-     animation: notransform 1s ease-in;
- }
-
- #counterImg {
-     background-image: url(../img/count2.png);
-     background-repeat: no-repeat;
-     background-position: 0px 0px;
-     height: 70px;
-     width: 60px;
-     margin: 0px auto;
- }
-
- @keyframes notransform {
-     0% {
-         transform: scale3d(0, 0, 0);
-     }
-     50% {
-         transform: scale3d(0, 0, 1);
-     }
-     100% {
-         transform: none;
-     }
- }
-
- .finalMonster h4 {
-     color: #df95c8;
-     font-family: cursive;
- }
-
- .animatedTears {
-     position: absolute;
-     top: 40%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     height: 70vh;
- }
-
- .eyes {
-     top: 20vh;
-     left: 50%;
-     /*width: 30%;*/
-     transform: translate(-50%, -50%);
-     position: absolute;
-     overflow: hidden;
-     padding: 5px;
- }
-
- .eye_left {
-     position: relative;
-     float: left;
-     width: 100%;
- }
-
- .tears {
-     width: 90%;
-     height: 30vh;
- }
-
- .drop {
-     position: relative;
-     float: left;
-     width: 2px;
-     margin: 1vw;
-     left: 2vw;
-     /*background: #789;
-     box-shadow: 1px 0.5px 1px 0.5px rgba(0, 0, 0, 0.75);*/
-     background: rgb(228, 17, 17);
-     box-shadow: 1px 0.5px 1px 0.5px rgba(80, 10, 10, 0.863);
-     animation: rain 0.8s infinite ease-out;
- }
-
- .drop:nth-child(1) {
-     height: 5vh;
-     top: 30vh;
-     animation-delay: -1.0s;
- }
-
- .drop:nth-child(2) {
-     height: 9vh;
-     top: 25vh;
-     animation-delay: -1.4s;
- }
-
- .drop:nth-child(3) {
-     height: 5vh;
-     top: 30vh;
-     animation-delay: -1.6s;
- }
-
- .drop:nth-child(4) {
-     height: 3vh;
-     top: 35vh;
-     animation-delay: -1.2s;
- }
-
- .drop:nth-child(5) {
-     height: 1vh;
-     top: 35vh;
-     animation-delay: -1.6s;
- }
-
- @keyframes rain {
-     0% {
-         opacity: 1;
-         transform: translate(0, 0);
-     }
-     100% {
-         opacity: 0.2;
-         transform: translate(0, 40vh);
-     }
- }
-
- .surface {
-     position: relative;
-     width: 30vh;
-     height: 140px;
-     top: 40vh;
- }
-
- .hit {
-     position: absolute;
-     width: 1vw;
-     height: 1vh;
-     margin: 2vw;
-     bottom: -5px;
-     border: 1px solid rgb(247, 66, 66);
-     border-radius: 50%;
-     animation: hit 0.8s infinite ease;
- }
-
- .hit:nth-child(1) {
-     left: 1vw;
-     animation-delay: -0.3s;
- }
-
- .hit:nth-child(2) {
-     left: 3vw;
-     animation-delay: -0.7s;
- }
-
- .hit:nth-child(3) {
-     left: 5vw;
-     animation-delay: -0.9s;
- }
-
- .hit:nth-child(4) {
-     left: 7vw;
-     animation-delay: -0.5s;
- }
-
- .hit:nth-child(5) {
-     left: 9vw;
-     animation-delay: -0.9s;
- }
-
- @keyframes hit {
-     0% {
-         opacity: 0.9;
-         transform: scale(1);
-     }
-     100% {
-         opacity: 0;
-         transform: scale(2.5);
-     }
- }
-
- /*.backFace{ bottom: 1vh;
-    z-index: 2;
- }
- .frontFace{
+#menu, #rules, #menu_on, #start, #loss, #monsterField,#win {
     display: none;
- }
+}
 
- .frontFace{
+/**/
+
+.Logo {
+    width: 100%;
+    height: 30vh;
+    background: url(../img/logo.png) center no-repeat;
+    background-size: contain;
+}
+
+main {
+    min-height: 100vh;
+}
+
+#rules {
+    flex: 1 1 auto;
+    height: 100vh;
+    background: url(../img/rules.png) center no-repeat;
+    position: relative;
+    overflow-y: auto;
+}
+
+.RulesInfo {
+    position: absolute;
+    left: 50%;
+    padding-top: 15vh;
+    margin-bottom: 5vh;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+    text-align: justify;
+}
+
+.RulesInfo h1, .RulesInfo h2, .RulesInfo h3 {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+}
+
+.RulesInfo h1 {
+    font-size: 2.5rem;
+}
+
+nav {
+    margin: auto;
+}
+
+.MainMenu {
+    list-style: none;
+    padding-top: 15vh;
+    text-align: center;
+    height: 40vh;
+    background: url(../img/menu.png) center no-repeat;
+    background-size: contain;
+}
+
+.MainMenu button {
+    width: 45vw;
+    max-width: 260px;
+    height: 6vh;
+    background-color: transparent;
+    border: ridge rgb(112, 60, 17);
+    border-radius: 10% /45%;
+    font-size: 4vh;
+    font-family: Arciform Sans cyr-lat;
+    color: rgb(236, 139, 49);
+    margin-bottom: 1%;
+}
+
+#monsterField {
+    width: 90%;
+    min-height: 39vh;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#start {
+    width: 80%;
+    margin: 0px auto;
+    min-height: 100vh;
+}
+
+.Glass {
+    z-index: -1;
+    transition: opacity 2s;
+}
+
+#memoryBox {
+    width: 80%;
+    margin-top: 4vh;
+    height: 90vh;
+    position: absolute;
+}
+
+#cardField {
+    transform: translateZ(0);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+    min-height: 50vh;
+    margin: 0px auto;
+    perspective: 1000px;
+}
+
+.SmallCards {
+    max-width: 200px;
+    width: 30%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: scale(1);
+    transition: transform 0.8s;
+}
+
+.SmallCards img {
+    width: 100%;
+    position: absolute;
+}
+
+.BackFace, .FrontFace {
+    backface-visibility: hidden;
+}
+
+#menu_on:hover, #menu_on:focus {
+    transform: scale(0.95);
+    transition: transform 0.8s;
+}
+
+.SmallCards.FlipCardAnimation, .FrontFace {
+    transform: rotateY(180deg);
+}
+
+#monsterField div {
+    max-width: 300px;
+    width: 30%;
+    margin: 0px auto;
+    position: relative;
+    transform: translateZ(0);
+}
+
+#monsterField img {
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 90%;
+    position: absolute;
+    border-radius: 5%;
+    transition: opacity 2s;
+    box-shadow: 1px 1px #141615, 2px 2px #eaa953, 3px 3px #141615, 4px 4px #ea9753, 5px 5px #141615, 6px 6px #ea9753, 7px 7px #141615;
+}
+
+@keyframes Anim {
+    0% {
+        width: 90%;
+        top: 50%;
+    }
+    100% {
+        width: 1%;
+        top: 100%;
+    }
+}
+
+.FinalMonster {
+    float: left;
+    clear: left;
+    width: 7%;
+    margin-left: 1%;
+    margin-top: 20vh;
+    transform-style: preserve-3d;
+    text-align: center;
+}
+
+.FinalMonster img {
+    width: 100%;
+    display: none;
+}
+
+.FinalMonsterAnimation {
+    animation-iteration-count: 0;
+    animation: notransform 1s ease-in;
+}
+
+#counterImg {
+    background-image: url(../img/count2.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 70px;
+    width: 60px;
+    margin: 0px auto;
+}
+
+@keyframes notransform {
+    0% {
+        transform: scale3d(0, 0, 0);
+    }
+    50% {
+        transform: scale3d(0, 0, 1);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+.FinalMonster h4 {
+    color: #df95c8;
+    font-family: 'Ruslan Display', cursive;
+}
+
+.AnimatedTears {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+}
+
+.Eyes {
+    top: 20vh;
+    left: 50%;
+    /*width: 30%;*/
+    transform: translate(-50%, -50%);
+    position: absolute;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.EyeLeft {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.Tears {
+    width: 90%;
+    height: 30vh;
+}
+
+.Drop {
+    position: relative;
+    float: left;
+    width: 2px;
+    margin: 1vw;
+    left: 2vw;
+    /*background: #789;
+     box-shadow: 1px 0.5px 1px 0.5px rgba(0, 0, 0, 0.75);*/
+    background: rgb(228, 17, 17);
+    box-shadow: 1px 0.5px 1px 0.5px rgba(80, 10, 10, 0.863);
+    animation: rain 0.8s infinite ease-out;
+}
+
+.Drop:nth-child(1) {
+    height: 5vh;
+    top: 30vh;
+    animation-delay: -1.0s;
+}
+
+.Drop:nth-child(2) {
+    height: 9vh;
+    top: 25vh;
+    animation-delay: -1.4s;
+}
+
+.Drop:nth-child(3) {
+    height: 5vh;
+    top: 30vh;
+    animation-delay: -1.6s;
+}
+
+.Drop:nth-child(4) {
+    height: 3vh;
+    top: 35vh;
+    animation-delay: -1.2s;
+}
+
+.Drop:nth-child(5) {
+    height: 1vh;
+    top: 35vh;
+    animation-delay: -1.6s;
+}
+
+@keyframes rain {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: 0.2;
+        transform: translate(0, 40vh);
+    }
+}
+
+.Surface {
+    position: relative;
+    width: 30vh;
+    height: 140px;
+    top: 40vh;
+}
+
+.Hit {
+    position: absolute;
+    width: 1vw;
+    height: 1vh;
+    margin: 2vw;
+    bottom: -5px;
+    border: 1px solid rgb(247, 66, 66);
+    border-radius: 50%;
+    animation: hit 0.8s infinite ease;
+}
+
+.Hit:nth-child(1) {
+    left: 1vw;
+    animation-delay: -0.3s;
+}
+
+.Hit:nth-child(2) {
+    left: 3vw;
+    animation-delay: -0.7s;
+}
+
+.Hit:nth-child(3) {
+    left: 5vw;
+    animation-delay: -0.9s;
+}
+
+.Hit:nth-child(4) {
+    left: 7vw;
+    animation-delay: -0.5s;
+}
+
+.Hit:nth-child(5) {
+    left: 9vw;
+    animation-delay: -0.9s;
+}
+
+@keyframes hit {
+    0% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+#win {
+    text-align: center;
+    margin: 0px auto;
+    top: 20vh;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+}
+
+#win span {
+    font-size: 16vw;
+    font-family: 'Ruslan Display', cursive;
+    color: rgb(170, 226, 96);
+    background: linear-gradient(45deg, rgb(14, 114, 19) 33%, rgb(47, 168, 93) 66%, rgb(196, 214, 117));
     opacity: 0;
- }*/
+    animation: showup 5s infinite;
+}
 
- /*.flipCardAnimation .frontFace {
-     transform: rotateY(180deg);
- }
-*/
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
- /*.flipCardAnimation {
-     transform: rotateY(180deg);
-     transition: transform 0.5s;
- }*/
+@media screen and (min-width: 800px) {
+    #rules {
+        background-size: 50% 100%;
+    }
+    .RulesInfo {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
 
- @media screen and (min-width: 800px) {
-     #rules {
-         background-size: 50% 100%;
-     }
-     .rules-info {
-         padding-left: 30%;
-         padding-right: 30%;
-     }
- }
+@media screen and (max-width: 800px) {
+    .RulesInfo {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #cardField {
+        min-height: 40vh;
+    }
+}
 
- @media screen and (max-width: 800px) {
-     .rules-info {
-         padding-left: 10%;
-         padding-right: 10%;
-     }
-     #cardField {
-         min-height: 40vh;
-     }
- }
-
- /*!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!
  надо что-то добавить на препорциональную высоту и ширину. когда ширина большая, а высота маленькая)
  или когда горизонатльное положение экрана. !!!!!!!!!!!!!!!! не сделано
 
