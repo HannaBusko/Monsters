@@ -54,6 +54,7 @@ function SwitchToStateFromURLHash(param) {
 
             document.getElementById(entry.id).style.display = showElement ? 'block' : 'none';
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
+            document.getElementById("sound").style.display = (state === 'Rules') ? 'none' : 'block';
             document.getElementById("counterPart").style.display = (state != 'Start') ? 'none' : 'block';
             
 

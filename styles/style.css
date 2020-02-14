@@ -28,7 +28,7 @@ body {
     outline: none;
 }
 
-#menu, #rules, #menu_on, #start, #loss, #monsterField,#win {
+#menu, #rules, #menu_on, #start, #loss, #monsterField,#win, #counterPart {
     display: none;
 }
 
@@ -403,26 +403,6 @@ nav {
     }
     100% {
         opacity: 0;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    #rules {
-        background-size: 50% 100%;
-    }
-    .RulesInfo {
-        padding-left: 30%;
-        padding-right: 30%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .RulesInfo {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-    #cardField {
-        min-height: 40vh;
     }
 }
 

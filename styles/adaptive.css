@@ -1,0 +1,56 @@
+@media screen and (max-width: 1500px) {
+    #sound {
+        width: 10%;
+    }
+}
+
+@media screen and (max-height: 900px) {
+    #monsterField {
+        width: 60%;
+    }
+}
+
+@media screen and (max-height: 900px) and (min-width:1028px){
+    .SmallCards  {
+        width: 24%;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .RulesInfo {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+   /* #cardField {
+        min-height: 40vh;
+    }*/
+}
+@media screen and (min-width: 700px) {
+    #rules {
+        background-size: 50% 100%;
+    }
+    .RulesInfo {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+
+/*@media screen and (min-width: 800px) {
+    #rules {
+        background-size: 50% 100%;
+    }
+    .RulesInfo {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .RulesInfo {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #cardField {
+        min-height: 40vh;
+    }
+}*/

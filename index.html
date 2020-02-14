@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/background.css">
-    <!--<link rel="stylesheet" type="text/css" href="styles/adaptive.css">-->
+    <link rel="stylesheet" href="styles/adaptive.css">
 </head>
 
 <body>
-   <header>
+    <header>
         <input id="sound" type="image" title="Звук" value="off" src="./img/sound3_stop.png"
             alt="Включение/выключение звука">
         <audio id="audioplayerMenu" preload loop></audio>
@@ -32,133 +32,134 @@
 </body>
 
 </html>
-    <main>
-        <div id="menu">
-            <div class="Logo"></div>
-            <nav>
-                <ul class="MainMenu">
-                    <li><button onclick="switchToGamePage()">Играть</button></li>
-                    <li><button onclick="switchToRulesPage()"> Правила</li>
-                </ul>
-            </nav>
-        </div>
-        <div id="rules">
-            <article class="RulesInfo">
-                <h1>Доброй ночи, чудовище!</h1>
-                <p>Вечером мир выглядит иначе. Таинственные тени появляются на стенах…Чудовища подкрадываются к кровати…
-                    Ты не можешь заснуть? Ты боишься
-                    монстров? Сыграй в игру и уложили своих монстров спать!</p>
-                <h2> ХОД ИГРЫ</h2>
-                <p>
-                    Вы стараетесь найти игрушку, которая успокоят монстра. Каждое чудовище любит только одну
-                    игрушку – ту, которая изображена на его карте.
-                    Вы открываете любой жетон с игрушкой. В зависимости от того, какой жетон будет открыт: </p>
-                <p>1. Если игрок откроет игрушку идентичную той,
-                    которая изображена на карте монстра(одного из монстров):
-                    • Чудовище идет спать.
-                    • Жетон с игрушкой вновь переворачивается.</p>
-                <p>2. Если игрушка не успокоит монстров (т.е. не совпадет ни с одной изображенной игрушкой на карточке
-                    чудовищ):
-                    • Уменьшается количество безопасных попыток. На каждую часть монстра в банке дается 4 попытки.
-                    Если все попытки потрачены,переворачивается одна из частей монстра в банке. После того, когда появится целая фигурка монстра в банке, у вас есть
-                еще 4 попытки, после которых наступает проигрыш. Чудовища расстроены, ждите расплаты.</p>
-                <h3>Носки и Серенький волчок</h3>
-                <p> Ничего не происходит,чудовища им не рады.Вы теряете 1 попытку. 
-                <h2>ПОБЕДА</h2>
-                <p>Вы побеждаете в том случае, если вам удастся уложить спать всех монстров!</p>
-            </article>
-        </div>
-        <div id="start">
-            <div id="memoryBox">
-                <div id="cardField">
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                    <div class="SmallCards">
-                        <img class="BackFace" src="img/back.svg" alt="backImg">
-                    </div>
-                </div>
-                <div id="monsterField">
-                    <div id="firstCardDeck">
-                        <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
-                    </div>
-                    <div id="secondCardDeck">
-                        <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
-                    </div>
-                    <div id="thirdCardDeck">
-                        <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="loss">
-            <div class=Eyes>
-                <img class="EyeLeft" src="img/eyeL.png" alt="left eye">
-            </div>
-            <div class="AnimatedTears">
-                <div class=Tears>
-                    <div class=Drop></div>
-                    <div class=Drop></div>
-                    <div class=Drop></div>
-                    <div class=Drop></div>
-                    <div class=Drop></div>
-                </div>
-                <div class=Surface>
-                    <div class=Hit></div>
-                    <div class=Hit></div>
-                    <div class=Hit></div>
-                    <div class=Hit></div>
-                    <div class=Hit></div>
-                </div>
-            </div>
-        </div>
-        <div id="win">
-            <span>П</span>
-            <span>О</span>
-            <span>Б</span>
-            <span>Е</span>
-            <span>Д</span>
-            <span>А</span>   
+<main>
+    <div id="menu">
+        <div class="Logo"></div>
+        <nav>
+            <ul class="MainMenu">
+                <li><button onclick="switchToGamePage()">Играть</button></li>
+                <li><button onclick="switchToRulesPage()"> Правила</li>
+            </ul>
+        </nav>
     </div>
-        <!-- всякое <footer><div id="cardField">
+    <div id="rules">
+        <article class="RulesInfo">
+            <h1>Доброй ночи, чудовище!</h1>
+            <p>Вечером мир выглядит иначе. Таинственные тени появляются на стенах…Чудовища подкрадываются к кровати…
+                Ты не можешь заснуть? Ты боишься
+                монстров? Сыграй в игру и уложили своих монстров спать!</p>
+            <h2> ХОД ИГРЫ</h2>
+            <p>
+                Вы стараетесь найти игрушку, которая успокоят монстра. Каждое чудовище любит только одну
+                игрушку – ту, которая изображена на его карте.
+                Вы открываете любой жетон с игрушкой. В зависимости от того, какой жетон будет открыт: </p>
+            <p>1. Если игрок откроет игрушку идентичную той,
+                которая изображена на карте монстра(одного из монстров):</p>
+            <p> • Чудовище идет спать.</p>
+            <p> • Жетон с игрушкой вновь переворачивается.</p>
+            <p>2. Если игрушка не успокоит монстров (т.е. не совпадет ни с одной изображенной игрушкой на карточке
+                чудовищ):</p>
+            <p> • Уменьшается количество безопасных попыток. На каждую часть монстра в банке дается 4 попытки.
+                Если все попытки потрачены,переворачивается одна из частей монстра в банке. После того, когда
+                появится целая фигурка монстра в банке, у вас есть
+                еще 4 попытки, после которых наступает проигрыш. Чудовища расстроены, ждите расплаты.</p>
+            <h3>Носки и Серенький волчок</h3>
+            <p> Ничего не происходит,чудовища им не рады.Вы теряете 1 попытку.</p>
+            <h2>ПОБЕДА</h2>
+            <p>Вы побеждаете в том случае, если вам удастся уложить спать всех монстров!</p>
+        </article>
+    </div>
+    <div id="start">
+        <div id="memoryBox">
+            <div id="cardField">
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+                <div class="SmallCards">
+                    <img class="BackFace" src="img/back.svg" alt="backImg">
+                </div>
+            </div>
+            <div id="monsterField">
+                <div id="firstCardDeck">
+                    <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
+                </div>
+                <div id="secondCardDeck">
+                    <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
+                </div>
+                <div id="thirdCardDeck">
+                    <img class="BackFaceBig" src="img/back_side.jpg" alt="backMonsterImg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loss">
+        <div class=Eyes>
+            <img class="EyeLeft" src="img/eyeL.png" alt="left eye">
+        </div>
+        <div class="AnimatedTears">
+            <div class=Tears>
+                <div class=Drop></div>
+                <div class=Drop></div>
+                <div class=Drop></div>
+                <div class=Drop></div>
+                <div class=Drop></div>
+            </div>
+            <div class=Surface>
+                <div class=Hit></div>
+                <div class=Hit></div>
+                <div class=Hit></div>
+                <div class=Hit></div>
+                <div class=Hit></div>
+            </div>
+        </div>
+    </div>
+    <div id="win">
+        <span>П</span>
+        <span>О</span>
+        <span>Б</span>
+        <span>Е</span>
+        <span>Д</span>
+        <span>А</span>
+    </div>
+    <!-- всякое <footer><div id="cardField">
                    <span>У</span>
                 <span>Р</span>
                 <span>А</span> 
                 </div>
             <canvas id="cvs"></canvas>
             <img src="./img/footer.png">
-        </footer>-->  
-   
+        </footer>-->
+
     <!--<div class="load" style="display: none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
    -->
     <script src="./scripts/game-logic.js"></script>
@@ -166,6 +167,6 @@
     <script src='./scripts/big-cards.js'></script>
     <script src='./scripts/final-monster.js'></script>
     <script src='./scripts/init-game.js'></script>
-     <script src="./scripts/core.js"></script>
+    <script src="./scripts/core.js"></script>
     <script src='./scripts/SPA.js'></script>
 </main>
