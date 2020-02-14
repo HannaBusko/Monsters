@@ -26,6 +26,7 @@ function checkCard() {
     else {
         constantVariables.finalMonsterCounter++;
         if (constantVariables.finalMonsterCounter == 16) {
+            checkFinalCounter();
             document.getElementById("loss").style.display = "block";
             removeListenersSmall();
             constantVariables.finalMonsterCounter = 0;

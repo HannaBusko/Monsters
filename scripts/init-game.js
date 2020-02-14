@@ -25,10 +25,11 @@ function loadSmallCards() {
     ];
 }
 
-function loadSprintPosition(){
+function loadSprintPosition() {
     return [
-        {"count":4, "position":"0px"},{"count":1, "position":"-49px"},
-        {"count":2, "position":"-98px"},{"count":3, "position":"-145px"}
+        { "count": 4, "position": "-200px" }, { "count": 1, "position": "-145px" },
+        { "count": 2, "position": "-98px" }, { "count": 3, "position": "-49px" },
+        { "count": 0, "position": "0px" }
     ];
 }
 
@@ -53,6 +54,7 @@ function compareRandom(a, b) {
 function initGame() {
     constantVariables.smallOpenedCard = "";
     constantVariables.hasOpenedCard = false;
+    checkFinalCounter();
     sortBigCards(loadBigCards());
     sortSmallCards(loadSmallCards());
 }
@@ -67,10 +69,9 @@ function cleanCardField() {
     }
 }
 
-function returnFirstPosition(){
+function returnFirstPosition() {
     document.getElementById("firstFinalPart").style.display = 'none';
     document.getElementById("secondFinalPart").style.display = 'none';
     document.getElementById("thirdFinalPart").style.display = 'none';
-    document.getElementById("loss").style.display ='none';
-    document.getElementById("counterImg").style.backgroundPosition =" 0px 0px";
+    document.getElementById("loss").style.display = 'none';
 }

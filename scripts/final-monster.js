@@ -20,9 +20,15 @@ function changeFinalMonsterStyle(partOfMonster) {
 }
 
 function checkFinalCounter() {
-    let number3 = new Set([3, 7, 11, 15]);
-    let positionArray = loadSprintPosition();
+   
     let sprite = document.getElementById("counterImg");
+    let positionArray = loadSprintPosition();
+    if(constantVariables.finalMonsterCounter == 16){
+        sprite.style.backgroundPositionX = positionArray[4].position;
+        return;
+    }
+
+    let number3 = new Set([3, 7, 11, 15]);
     if (constantVariables.finalMonsterCounter == 1)
         sprite.style.display = "block";
     if (!(constantVariables.finalMonsterCounter % positionArray[0].count)) {

@@ -85,7 +85,7 @@ function addBigCardBack(value) {
 function deleteBigCardBack(dack) {
     let firstCard = dack.lastElementChild;
     firstCard.style.boxShadow = "none";
-    firstCard.style.animation = "Anim 1.5s ease-in";
-    setTimeout(() => firstCard.parentNode.removeChild(firstCard), 1490);
+    firstCard.style.animation = "Anim 1s ease-in";
+    setTimeout(() => firstCard.parentNode.removeChild(firstCard), 970);
 }
 
