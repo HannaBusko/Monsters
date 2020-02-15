@@ -19,29 +19,36 @@ function changeFinalMonsterStyle(partOfMonster) {
     partOfMonster.style.display = "block";
 }
 
-function checkFinalCounter() {
-   
+function checkFinalCounterImg() {
+
     let sprite = document.getElementById("counterImg");
+    let countNum = document.getElementById("counterNum");
     let positionArray = loadSprintPosition();
-    if(constantVariables.finalMonsterCounter == 16){
+    if (constantVariables.finalMonsterCounter == 16) {
         sprite.style.backgroundPositionX = positionArray[4].position;
         return;
     }
 
     let number3 = new Set([3, 7, 11, 15]);
-    if (constantVariables.finalMonsterCounter == 1)
-        sprite.style.display = "block";
+    if (constantVariables.finalMonsterCounter == 1) {
+        //sprite.style.display = "block";
+        countNum.innerText = positionArray[0].countNum;
+    }
     if (!(constantVariables.finalMonsterCounter % positionArray[0].count)) {
         sprite.style.backgroundPositionX = positionArray[0].position;
+        countNum.innerText = positionArray[0].countNum;
     }
     else if (!(constantVariables.finalMonsterCounter % positionArray[2].count)) {
         sprite.style.backgroundPositionX = positionArray[2].position;
+        countNum.innerText = positionArray[2].countNum;
     }
     else if (number3.has(constantVariables.finalMonsterCounter)) {
         sprite.style.backgroundPositionX = positionArray[3].position;
+        countNum.innerText = positionArray[3].countNum;
     }
     else {
         sprite.style.backgroundPositionX = positionArray[1].position;
+        countNum.innerText = positionArray[1].countNum;
     }
 
 }

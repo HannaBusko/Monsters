@@ -27,9 +27,9 @@ function loadSmallCards() {
 
 function loadSprintPosition() {
     return [
-        { "count": 4, "position": "-200px" }, { "count": 1, "position": "-145px" },
-        { "count": 2, "position": "-98px" }, { "count": 3, "position": "-49px" },
-        { "count": 0, "position": "0px" }
+        { "count": 4, "position": "-200px", "countNum": 4 }, { "count": 1, "position": "-145px", "countNum": 3 },
+        { "count": 2, "position": "-98px", "countNum": 2 }, { "count": 3, "position": "-49px", "countNum": 1 },
+        { "count": 0, "position": "0px", "countNum": 0 }
     ];
 }
 
@@ -54,7 +54,7 @@ function compareRandom(a, b) {
 function initGame() {
     constantVariables.smallOpenedCard = "";
     constantVariables.hasOpenedCard = false;
-    checkFinalCounter();
+    checkFinalCounterImg();
     sortBigCards(loadBigCards());
     sortSmallCards(loadSmallCards());
 }

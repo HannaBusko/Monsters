@@ -1,18 +1,18 @@
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1025px) and (orientation: portrait){
     #sound {
         width: 10%;
     }
-}
-
-@media screen and (max-height: 900px) {
     #monsterField {
-        width: 60%;
+        min-height: 15vh;
     }
 }
 
-@media screen and (max-height: 900px) and (min-width:1028px){
-    .SmallCards  {
+@media screen and (max-height: 900px) and (min-width:1028px) {
+    .SmallCards {
         width: 24%;
+    }
+    #monsterField {
+        width: 60%;
     }
 }
 
@@ -21,10 +21,26 @@
         padding-left: 10%;
         padding-right: 10%;
     }
-   /* #cardField {
+    #cardField {
         min-height: 40vh;
-    }*/
+    }
 }
+
+@media screen and (max-width: 480px) {
+    #cardField {
+        min-height: 35vh;
+    }
+    .FinalMonster h4 {
+        font-size: 2vw;
+    }
+    #counterImg {
+        display: none;
+    }
+    #counterNum {
+        display: block;
+    }
+}
+
 @media screen and (min-width: 700px) {
     #rules {
         background-size: 50% 100%;
@@ -35,22 +51,12 @@
     }
 }
 
-/*@media screen and (min-width: 800px) {
-    #rules {
-        background-size: 50% 100%;
+@media only screen and (max-height: 480px){
+    .SmallCards {
+        width: 21%;
     }
-    .RulesInfo {
-        padding-left: 30%;
-        padding-right: 30%;
+    #monsterField {
+        width: 60%;
+        min-height: 45vh;
     }
 }
-
-@media screen and (max-width: 800px) {
-    .RulesInfo {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-    #cardField {
-        min-height: 40vh;
-    }
-}*/

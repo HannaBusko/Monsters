@@ -33,13 +33,13 @@ function checkCard() {
     else {
         constantVariables.finalMonsterCounter++;
         if (constantVariables.finalMonsterCounter == 16) {
-            checkFinalCounter();
+            checkFinalCounterImg();
             document.getElementById("loss").style.display = "block";
             gameOver();
         }
         else {
             checkFinalMonster();
-            checkFinalCounter();
+            checkFinalCounterImg();
         }
 
     }
