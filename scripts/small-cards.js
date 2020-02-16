@@ -24,8 +24,13 @@ function addSmallCards(smallCards) {
 }
 
 function addListenersSmall() {
+
     let allSmallCards = document.querySelectorAll(".SmallCards");
     for (let i = 0; i < allSmallCards.length; i++) {
+        allSmallCards[i].addEventListener('touchend', function (e) {
+            e.preventDefault();
+            e.target.click();
+        });
         allSmallCards[i].addEventListener('click', openSmallCard);
     }
 }
@@ -33,6 +38,10 @@ function addListenersSmall() {
 function removeListenersSmall() {
     let allSmallCards = document.querySelectorAll(".SmallCards");
     for (let i = 0; i < allSmallCards.length; i++) {
+        allSmallCards[i].removeEventListener('touchend', function (e) {
+            e.preventDefault();
+            e.target.click();
+        });
         allSmallCards[i].removeEventListener('click', openSmallCard);
     }
 }
@@ -44,17 +53,7 @@ function openSmallCard(EO) {
         checkDoubleCall();
     }
     else {
-        if (!constantVariables.hasOpenedCard) {
-            constantVariables.hasOpenedCard = true;
-            constantVariables.smallOpenedCard = this;
-            this.classList.add("FlipCardAnimation");
-        }
-        else {
-            constantVariables.hasOpenedCard = true;
-            constantVariables.smallOpenedCard.classList.remove("FlipCardAnimation");
-            this.classList.add("FlipCardAnimation");
-            constantVariables.smallOpenedCard = this;
-        }
+        flipSmallCard(this);
         checkCard();
     }
 }
@@ -63,4 +62,23 @@ function checkDoubleCall() {
     constantVariables.hasOpenedCard = false;
     constantVariables.smallOpenedCard.classList.remove("FlipCardAnimation");
     constantVariables.smallOpenedCard = "";
+}
+
+function flipSmallCard(card) {
+    if (!constantVariables.hasOpenedCard) {
+        constantVariables.hasOpenedCard = true;
+        constantVariables.smallOpenedCard = card;
+        card.classList.add("FlipCardAnimation");
+    }
+    else {
+        constantVariables.hasOpenedCard = true;
+        constantVariables.smallOpenedCard.classList.remove("FlipCardAnimation");
+        card.classList.add("FlipCardAnimation");
+        constantVariables.smallOpenedCard = card;
+    }
+}
+
+function openForHelp() {
+    let index = Math.floor(Math.random() * Math.floor(12));
+    flipSmallCard(document.querySelectorAll(".SmallCards")[index]);
 }

@@ -36,8 +36,8 @@ function loadSprintPosition() {
 var constantVariables = {
     "finalMonsterCounter": 0,
     "openedBigCards": [],
-    "maxTry":16, 
-    "isGameOld":false
+    "maxTry": 16,
+    "isGameOld": false
 }
 
 /*var gameplay = class Gameplay {
@@ -59,6 +59,11 @@ function initGame() {
     checkFinalCounterImg();
     sortBigCards(loadBigCards());
     sortSmallCards(loadSmallCards());
+    document.addEventListener('keydown', function (event) {
+        if (event.code == 'KeyH' && event.altKey) {
+            openForHelp();
+        }
+    });
 }
 
 function cleanCardField() {
