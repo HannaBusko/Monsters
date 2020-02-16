@@ -24,7 +24,7 @@ function checkFinalCounterImg() {
     let sprite = document.getElementById("counterImg");
     let countNum = document.getElementById("counterNum");
     let positionArray = loadSprintPosition();
-    if (constantVariables.finalMonsterCounter == 16) {
+    if (constantVariables.finalMonsterCounter == constantVariables.maxTry) {
         sprite.style.backgroundPositionX = positionArray[4].position;
         return;
     }

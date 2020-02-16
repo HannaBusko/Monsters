@@ -4,6 +4,10 @@
 window.onhashchange = SwitchToStateFromURLHash;
 
 function SwitchToStateFromURLHash(param) {
+    if (constantVariables.isGameOld) {
+        constantVariables.isGameOld = false;
+        return;
+    }
     let URLHash = window.location.hash;
 
     let oldURL = param.oldURL;
@@ -11,12 +15,18 @@ function SwitchToStateFromURLHash(param) {
     if (oldURL) {
         oldHash = oldURL.substring(oldURL.lastIndexOf("#"));
     }
-    console.log('Закладка изменилась: ', URLHash);
-
     if (oldHash === "#Start") {
+
+        if (constantVariables.finalMonsterCounter > 0 && constantVariables.finalMonsterCounter < constantVariables.maxTry) {
+            if (!confirm("Вы уверены, что хотите покинуть игру?")) {
+                window.history.go(-1);
+                constantVariables.isGameOld = true;
+                return;
+            }
+        }
         cleanCardField();
     }
- 
+    console.log('Закладка изменилась: ', URLHash);
     let state = decodeURIComponent(URLHash.substr(1));
 
     switch (state) {
@@ -56,7 +66,7 @@ function SwitchToStateFromURLHash(param) {
             document.getElementById("menu_on").style.display = (state === 'Menu') ? 'none' : 'block';
             document.getElementById("sound").style.display = (state === 'Rules') ? 'none' : 'block';
             document.getElementById("counterPart").style.display = (state != 'Start') ? 'none' : 'block';
-            
+
 
             if (state != 'Start') {
                 returnFirstPosition();
@@ -82,16 +92,6 @@ function SwitchToStateFromURLHash(param) {
     }
 }
 
-/*window.onbeforeunload = beforeUnload;
-var reloadMsg = 'В случае перезагрузки страницы прогресс игры будет утрачен';
-function beforeUnload(e) {
-    e = e || window.event;
-    if (gameplay.isPlaying()) {
-        e.returnValue = reloadMsg;
-        return reloadMsg;
-    }
-}*/
-
 SwitchToStateFromURLHash(true);
 
 function switchToState(newState) {
@@ -112,3 +112,13 @@ function switchToRulesPage() {
     switchToState({ pagename: 'Rules' });
 }
 
+window.addEventListener("beforeunload", beforeUnload);
+
+function beforeUnload(e) {
+    e = e || window.event;
+    if (constantVariables.finalMonsterCounter > 0 && constantVariables.finalMonsterCounter < constantVariables.maxTry) {
+        let message = "В случае перезагрузки страницы данные игры будут потеряны";
+        e.returnValue = message;
+        return message;
+    }
+}

@@ -35,7 +35,9 @@ function loadSprintPosition() {
 
 var constantVariables = {
     "finalMonsterCounter": 0,
-    "openedBigCards": []
+    "openedBigCards": [],
+    "maxTry":16, 
+    "isGameOld":false
 }
 
 /*var gameplay = class Gameplay {

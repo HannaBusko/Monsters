@@ -32,7 +32,7 @@ function checkCard() {
     }
     else {
         constantVariables.finalMonsterCounter++;
-        if (constantVariables.finalMonsterCounter == 16) {
+        if (constantVariables.finalMonsterCounter == constantVariables.maxTry) {
             checkFinalCounterImg();
             document.getElementById("loss").style.display = "block";
             gameOver();
