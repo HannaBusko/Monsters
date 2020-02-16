@@ -34,10 +34,11 @@ function loadSprintPosition() {
 }
 
 var constantVariables = {
-    "finalMonsterCounter": 0,
-    "openedBigCards": [],
-    "maxTry": 16,
-    "isGameOld": false
+    finalMonsterCounter: 0,
+    openedBigCards: [],
+    maxTry: 16,
+    isGameOld: false,
+    storageClient: new StringStorageAjaxClient("STATISTIC")
 }
 
 function compareRandom(a, b) {

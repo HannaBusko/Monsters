@@ -1,13 +1,8 @@
 "use strict"
 
-///////////////////////////////////////////////////
-//блок работы с музыкой
-//////////////////////////////////////////////////
-
 let soundButton = document.getElementById("sound");
 soundButton.addEventListener("click", controlMusic);
 
-// Функция stop для Audio:
 HTMLAudioElement.prototype.stop = function () {
     this.pause();
     this.currentTime = 0.0;

@@ -1,6 +1,3 @@
-// отслеживаем изменение закладки в УРЛе
-// оно происходит при любом виде навигации
-// в т.ч. при нажатии кнопок браузера ВПЕРЁД/НАЗАД
 window.onhashchange = SwitchToStateFromURLHash;
 
 function SwitchToStateFromURLHash(param) {

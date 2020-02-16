@@ -31,7 +31,6 @@ function checkFinalCounterImg() {
 
     let number3 = new Set([3, 7, 11, 15]);
     if (constantVariables.finalMonsterCounter == 1) {
-        //sprite.style.display = "block";
         countNum.innerText = positionArray[0].countNum;
     }
     if (!(constantVariables.finalMonsterCounter % positionArray[0].count)) {
