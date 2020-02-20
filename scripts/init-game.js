@@ -34,8 +34,6 @@ function loadSprintPosition() {
 }
 
 var constantVariables = {
-    finalMonsterCounter: 0,
-    openedBigCards: [],
     maxTry: 16,
     isGameOld: false,
     storageClient: new StringStorageAjaxClient("STATISTIC")
@@ -48,6 +46,9 @@ function compareRandom(a, b) {
 function initGame() {
     constantVariables.smallOpenedCard = "";
     constantVariables.hasOpenedCard = false;
+    constantVariables.finalMonsterCounter = 0;
+    constantVariables.openedBigCards = [];
+
     addHelpListeners();
     checkFinalCounterImg();
     sortBigCards(loadBigCards());
