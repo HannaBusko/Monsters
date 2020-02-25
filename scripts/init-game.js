@@ -73,6 +73,7 @@ function returnFirstPosition() {
     document.getElementById("loss").style.display = 'none';
     document.getElementById("win").style.display = 'none';
     removeHelpListeners();
+    removeListenersSmall();
 }
 
 function checkKeyboard(EO) {
