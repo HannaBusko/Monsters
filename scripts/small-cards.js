@@ -27,10 +27,7 @@ function addListenersSmall() {
 
     let allSmallCards = document.querySelectorAll(".SmallCards");
     for (let i = 0; i < allSmallCards.length; i++) {
-        allSmallCards[i].addEventListener('touchend', function (e) {
-            e.preventDefault();
-            e.target.click();
-        });
+        allSmallCards[i].addEventListener('touchend', smallCardOnTouched);
         allSmallCards[i].addEventListener('click', openSmallCard);
     }
 }
@@ -38,12 +35,14 @@ function addListenersSmall() {
 function removeListenersSmall() {
     let allSmallCards = document.querySelectorAll(".SmallCards");
     for (let i = 0; i < allSmallCards.length; i++) {
-        allSmallCards[i].removeEventListener('touchend', function (e) {
-            e.preventDefault();
-            e.target.click();
-        });
+        allSmallCards[i].removeEventListener('touchend', smallCardOnTouched);
         allSmallCards[i].removeEventListener('click', openSmallCard);
     }
+}
+
+function smallCardOnTouched(e) {
+    e.preventDefault();
+    e.target.click();
 }
 
 function openSmallCard(EO) {

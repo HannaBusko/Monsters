@@ -83,47 +83,35 @@ function checkKeyboard(EO) {
     }
 }
 
+let longTouchTimer = "";
+
 function addHelpListeners() {
     document.addEventListener('keydown', checkKeyboard);
 
-    let longTouchTimer = "";
+    longTouchTimer = "";
     let monsterField = document.getElementById("monsterField");
-    monsterField.addEventListener('touchstart', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        longTouchTimer = setTimeout(openForHelp, 800);
-    }, false);
+    monsterField.addEventListener('touchstart', monsterFieldOnTouchstart, false);
 
-    monsterField.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        //clearTimeout(longTouchTimer);
-    }, false);
-
-    monsterField.addEventListener('touchend', function (event) {
-        clearTimeout(longTouchTimer);
-    }, false);
+    monsterField.addEventListener('touchend', monsterFieldOnTouched, false);
 }
 
 function removeHelpListeners(){
 
     document.removeEventListener('keydown', checkKeyboard);
 
-    let longTouchTimer = "";
+    longTouchTimer = "";
     let monsterField = document.getElementById("monsterField");
-    monsterField.removeEventListener('touchstart', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        longTouchTimer = setTimeout(openForHelp, 800);
-    }, false);
+    monsterField.removeEventListener('touchstart', monsterFieldOnTouchstart, false);
 
-    monsterField.removeEventListener('touchmove', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        clearTimeout(longTouchTimer);
-    }, false);
+    monsterField.removeEventListener('touchend', monsterFieldOnTouched, false);
+}
 
-    monsterField.removeEventListener('touchend', function (event) {
-        clearTimeout(longTouchTimer);
-    }, false);
+function monsterFieldOnTouchstart (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    longTouchTimer = setTimeout(openForHelp, 800);
+}
+
+function monsterFieldOnTouched (event) {
+    clearTimeout(longTouchTimer);
 }
