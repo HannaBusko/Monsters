@@ -96,7 +96,7 @@ function addHelpListeners() {
     monsterField.addEventListener('touchmove', function (event) {
         event.preventDefault();
         event.stopPropagation();
-        clearTimeout(longTouchTimer);
+        //clearTimeout(longTouchTimer);
     }, false);
 
     monsterField.addEventListener('touchend', function (event) {
