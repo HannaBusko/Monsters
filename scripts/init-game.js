@@ -64,6 +64,11 @@ function cleanCardField() {
     if (constantVariables.smallOpenedCard) {
         constantVariables.smallOpenedCard.classList.remove("FlipCardAnimation");
     }
+
+    let allBigCards= document.getElementsByClassName("frontFaceBigCard");
+    while (allBigCards.length != 0) {
+        allBigCards[0].parentNode.removeChild(allBigCards[0]);
+    }
 }
 
 function returnFirstPosition() {
